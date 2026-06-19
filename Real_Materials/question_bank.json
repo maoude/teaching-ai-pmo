@@ -1,0 +1,20 @@
+[
+  {
+    "question": "What should a project manager do first when receiving a new project request?",
+    "options": ["Start coding immediately", "Define scope and stakeholders", "Buy software tools", "Assign random tasks"],
+    "answer": "Define scope and stakeholders",
+    "explanation": "Scope and stakeholders define what success means."
+  },
+  {
+    "question": "Which statement best describes a WBS?",
+    "options": ["A list of employee responsibilities", "A deliverable-oriented decomposition of project work", "A budget approval form", "A meeting agenda"],
+    "answer": "A deliverable-oriented decomposition of project work",
+    "explanation": "A WBS breaks the project into deliverables."
+  },
+  {
+    "question": "What is the best recovery action during the week 8 crisis?",
+    "options": ["Add features", "Freeze scope and focus on critical deliverables", "Stop testing", "Hide the delay"],
+    "answer": "Freeze scope and focus on critical deliverables",
+    "explanation": "The PMO must protect the most important deliverables and communicate honestly."
+  }
+]

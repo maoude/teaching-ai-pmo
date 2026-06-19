@@ -82,6 +82,51 @@ const resources = [
   }
 ];
 
+const productionMaterials = [
+  {
+    title: "Lecture Delivery Script",
+    description: "Full instructor script for the 3-hour lecture, including prompts, debriefs, and expected answers.",
+    file: "materials/lecture_delivery_script.md",
+    icon: Presentation
+  },
+  {
+    title: "Explanatory Video Script",
+    description: "8-10 minute final project video script for presenting the module design and AI integration.",
+    file: "materials/explanatory_video_script_full.md",
+    icon: Video
+  },
+  {
+    title: "Micro-Video Scripts",
+    description: "Short scripts for WBS, dashboard reading, and project recovery explainer videos.",
+    file: "materials/micro_video_scripts.md",
+    icon: Video
+  },
+  {
+    title: "Genially Storyboard",
+    description: "Screen-by-screen branching simulation design for the Smart Campus App PMO challenge.",
+    file: "materials/genially_storyboard.md",
+    icon: LayoutDashboard
+  },
+  {
+    title: "Quizizz Import CSV",
+    description: "Fifteen ready quiz questions with answers, timing, and explanations.",
+    file: "materials/quizizz_import.csv",
+    icon: ClipboardCheck
+  },
+  {
+    title: "Question Bank JSON",
+    description: "Structured quiz data for future interactive quiz scoring inside the React app.",
+    file: "materials/question_bank.json",
+    icon: ClipboardCheck
+  },
+  {
+    title: "Activity Cards",
+    description: "Printable group cards for Scope Master, WBS Architect, Schedule Optimizer, Dashboard Detective, and Crisis Controller.",
+    file: "materials/activity_cards.md",
+    icon: FileText
+  }
+];
+
 const quests = [
   { level: "Level 1", title: "Project Launch", mission: "Define scope, stakeholders, constraints, and success criteria.", evidence: "Project charter summary", icon: Users },
   { level: "Level 2", title: "WBS Builder", mission: "Build a deliverable-oriented WBS for the Smart Campus App.", evidence: "WBS tree", icon: BookOpen },
@@ -112,15 +157,42 @@ const rubricAlignment = [
 ];
 
 const quiz = [
-  ["What should a project manager do first?", "Define scope and stakeholders"],
-  ["What is a WBS?", "A deliverable-oriented decomposition of project work"],
-  ["The first schedule is 15 weeks but the deadline is 12. What should the PMO do?", "Re-plan using parallel work, scope prioritization, and resource adjustment"],
-  ["Planned progress is 50%, actual progress is 38%. What does this mean?", "The project is behind schedule"],
-  ["What should a PMO recovery briefing include?", "Problem, impact, corrective action, and decision needed from the sponsor"]
+  {
+    question: "What should a project manager do first?",
+    options: ["Start coding immediately", "Define scope and stakeholders", "Buy software tools", "Assign random tasks"],
+    answer: "Define scope and stakeholders",
+    explanation: "Scope and stakeholders define what success means."
+  },
+  {
+    question: "What is a WBS?",
+    options: ["A list of employee responsibilities", "A deliverable-oriented decomposition of project work", "A budget approval form", "A meeting agenda"],
+    answer: "A deliverable-oriented decomposition of project work",
+    explanation: "A WBS breaks the project into deliverables."
+  },
+  {
+    question: "The first schedule is 15 weeks but the deadline is 12. What should the PMO do?",
+    options: ["Remove testing", "Hide the delay", "Re-plan using parallel work, scope prioritization, and resource adjustment", "Add extra features"],
+    answer: "Re-plan using parallel work, scope prioritization, and resource adjustment",
+    explanation: "Schedule compression must be realistic and controlled."
+  },
+  {
+    question: "Planned progress is 50%, actual progress is 38%. What does this mean?",
+    options: ["The project is ahead", "The project is behind schedule", "The project is complete", "The budget is automatically healthy"],
+    answer: "The project is behind schedule",
+    explanation: "Actual progress below planned progress shows schedule pressure."
+  },
+  {
+    question: "What should a PMO recovery briefing include?",
+    options: ["Only screenshots", "Only team complaints", "Problem, impact, corrective action, and decision needed from the sponsor", "Only excuses"],
+    answer: "Problem, impact, corrective action, and decision needed from the sponsor",
+    explanation: "A professional briefing explains the issue, impact, action, and decision needed."
+  }
 ];
 
 function App() {
-  const [openQuiz, setOpenQuiz] = useState(null);
+  const [answers, setAnswers] = useState({});
+  const answeredCount = Object.keys(answers).length;
+  const score = quiz.reduce((total, item, index) => total + (answers[index] === item.answer ? 1 : 0), 0);
 
   return (
     <div className="app-shell">
@@ -138,6 +210,7 @@ function App() {
           <a href="#project">Final Project</a>
           <a href="#module">PMO Module</a>
           <a href="#runbook">Runbook</a>
+          <a href="#production">Assets</a>
           <a href="#assessment">Assessment</a>
           <a href="#video">Video</a>
         </nav>
@@ -316,6 +389,33 @@ function App() {
           </div>
         </section>
 
+        {/* PRODUCTION ASSETS */}
+        <section className="content-band" id="production">
+          <div className="section-heading">
+            <p className="eyebrow">Production Assets</p>
+            <h2>Real Materials for Videos, Lectures, and Quizzes</h2>
+          </div>
+          <p className="module-intro">
+            Use these files to record the explanatory video, build the Genially simulation, run the lecture, import quiz questions, and print activity cards.
+          </p>
+          <div className="resource-grid asset-grid">
+            {productionMaterials.map((r) => {
+              const Icon = r.icon;
+              return (
+                <article className="resource-card" key={r.file}>
+                  <Icon size={28} aria-hidden="true" />
+                  <h3>{r.title}</h3>
+                  <p>{r.description}</p>
+                  <a className="dl-btn" href={`${BASE}${r.file}`} download>
+                    <Download size={16} aria-hidden="true" />
+                    Download
+                  </a>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
         {/* ASSESSMENT */}
         <section className="content-band" id="assessment">
           <div className="section-heading">
@@ -334,12 +434,46 @@ function App() {
               </table>
             </div>
             <div className="quiz-panel">
-              {quiz.map(([q, a], i) => (
-                <details key={q} open={openQuiz === i} onClick={(e) => { e.preventDefault(); setOpenQuiz(openQuiz === i ? null : i); }}>
-                  <summary>{i + 1}. {q}</summary>
-                  <p>{a}</p>
-                </details>
-              ))}
+              <div className="quiz-score">
+                <strong>Score: {score}/{quiz.length}</strong>
+                <span>{answeredCount === quiz.length ? "Quiz complete" : `${answeredCount}/${quiz.length} answered`}</span>
+              </div>
+              {quiz.map((item, i) => {
+                const selected = answers[i];
+                const isAnswered = Boolean(selected);
+                const isCorrect = selected === item.answer;
+                return (
+                  <article className="live-question" key={item.question}>
+                    <h3>{i + 1}. {item.question}</h3>
+                    <div className="option-grid">
+                      {item.options.map((option) => (
+                        <button
+                          className={[
+                            "option-button",
+                            selected === option ? "selected" : "",
+                            isAnswered && option === item.answer ? "correct" : "",
+                            selected === option && selected !== item.answer ? "incorrect" : ""
+                          ].filter(Boolean).join(" ")}
+                          key={option}
+                          type="button"
+                          onClick={() => setAnswers((current) => ({ ...current, [i]: option }))}
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                    {isAnswered && (
+                      <p className={isCorrect ? "feedback correct-text" : "feedback incorrect-text"}>
+                        {isCorrect ? "Correct. " : `Not quite. Correct answer: ${item.answer}. `}
+                        {item.explanation}
+                      </p>
+                    )}
+                  </article>
+                );
+              })}
+              <button className="reset-quiz" type="button" onClick={() => setAnswers({})}>
+                Reset Quiz
+              </button>
             </div>
           </div>
         </section>
