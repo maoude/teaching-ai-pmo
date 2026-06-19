@@ -1,0 +1,17 @@
+Section,Item,Planned,Actual,Formula_or_Interpretation
+Project,Name,Smart Campus Mobile App,Smart Campus Mobile App,
+Project,Duration weeks,12,,
+Project,Budget USD,40000,,
+Week 6 Dashboard,Progress percent,50,38,Actual progress is below planned progress
+Week 6 Dashboard,Cost USD,20000,24000,Actual cost is above planned cost
+Week 6 Dashboard,Critical bugs,0,12,Technical instability is high
+Week 6 Dashboard,Completed modules,4,2,Delivery is behind plan
+Earned Value,Planned Value PV,20000,,
+Earned Value,Earned Value EV,20000*0.38/0.50,15200,Approximation based on progress gap
+Earned Value,Actual Cost AC,24000,,
+Earned Value,Schedule Variance SV,EV-PV,-4800,Negative means behind schedule
+Earned Value,Cost Variance CV,EV-AC,-8800,Negative means over budget
+Earned Value,SPI,EV/PV,0.76,Below 1 means schedule performance is weak
+Earned Value,CPI,EV/AC,0.63,Below 1 means cost performance is weak
+Decision,Recommended action,Freeze scope and focus critical modules,,Login schedule notifications pilot
+Decision,Sponsor decision needed,Approve reduced scope for pilot,,Avoid pretending all features can be delivered

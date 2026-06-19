@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>From Plan to Control - Slide Deck</title>
+  <style>
+    :root { --ink:#172026; --muted:#5e6b73; --teal:#2f6f73; --amber:#d99a2b; --red:#b84a4a; --blue:#356f9f; --paper:#ffffff; --bg:#eef3f5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: var(--bg); color: var(--ink); }
+    .deck { display: grid; gap: 24px; padding: 24px; }
+    section { min-height: 720px; background: var(--paper); border: 1px solid #d8e0e5; border-radius: 8px; padding: 56px; display: flex; flex-direction: column; justify-content: center; page-break-after: always; }
+    .title { background: linear-gradient(135deg, #ffffff 0%, #edf7f6 55%, #fff4de 100%); }
+    h1 { font-size: 52px; line-height: 1.05; margin: 0 0 20px; letter-spacing: 0; }
+    h2 { font-size: 38px; margin: 0 0 24px; letter-spacing: 0; }
+    h3 { font-size: 24px; margin: 24px 0 10px; }
+    p, li { font-size: 24px; line-height: 1.35; }
+    ul { margin: 0; padding-left: 28px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 20px; }
+    th, td { border: 1px solid #d8e0e5; padding: 12px; text-align: left; vertical-align: top; }
+    th { background: #eef6f5; }
+    .kicker { color: var(--teal); font-weight: 700; text-transform: uppercase; font-size: 16px; letter-spacing: .08em; }
+    .scenario { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: stretch; }
+    .panel { border: 1px solid #d8e0e5; border-radius: 8px; padding: 22px; background: #fbfcfd; }
+    .badge-row { display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
+    .badge { border: 2px solid var(--teal); color: var(--teal); border-radius: 999px; padding: 10px 14px; font-weight: 700; }
+    .danger { color: var(--red); font-weight: 700; }
+    .note { color: var(--muted); font-size: 18px; }
+    @media print {
+      body { background: white; }
+      .deck { padding: 0; gap: 0; }
+      section { border: 0; border-radius: 0; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="title">
+      <p class="kicker">AI-assisted gamified project management module</p>
+      <h1>From Plan to Control</h1>
+      <p>Managing a project like a real PMO</p>
+      <p class="note">Case: Smart Campus Mobile App</p>
+    </section>
+    <section>
+      <h2>Today You Are the PMO</h2>
+      <p>The university president wants a Smart Campus Mobile App launched before the next semester.</p>
+      <ul>
+        <li>12 weeks</li>
+        <li>40,000 USD budget</li>
+        <li>Limited technical team</li>
+        <li>Demo expected by week 6</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Learning Objectives</h2>
+      <ul>
+        <li>Build a deliverable-oriented WBS.</li>
+        <li>Convert WBS items into a schedule.</li>
+        <li>Optimize execution under constraints.</li>
+        <li>Analyze dashboard indicators.</li>
+        <li>Propose corrective action during a crisis.</li>
+        <li>Present a professional PMO briefing.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>The Project Case</h2>
+      <div class="scenario">
+        <div class="panel">
+          <h3>App Features</h3>
+          <ul>
+            <li>Student login</li>
+            <li>Course schedule</li>
+            <li>Exam calendar</li>
+            <li>Notifications</li>
+            <li>Room reservation</li>
+            <li>Complaint/request system</li>
+            <li>Admin dashboard</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Constraints</h3>
+          <ul>
+            <li>12-week deadline</li>
+            <li>40,000 USD budget</li>
+            <li>Database integration risk</li>
+            <li>First demo by week 6</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Game Structure</h2>
+      <table>
+        <tr><th>Level</th><th>Quest</th><th>Evidence</th></tr>
+        <tr><td>1</td><td>Project Launch</td><td>Charter summary</td></tr>
+        <tr><td>2</td><td>WBS Builder</td><td>WBS tree</td></tr>
+        <tr><td>3</td><td>Schedule Rescue</td><td>12-week plan</td></tr>
+        <tr><td>4</td><td>Dashboard Detective</td><td>KPI interpretation</td></tr>
+        <tr><td>5</td><td>Crisis Controller</td><td>PMO recovery briefing</td></tr>
+      </table>
+    </section>
+    <section>
+      <h2>Level 1: Project Launch</h2>
+      <p>First decision: What should the PM do first?</p>
+      <ul>
+        <li>A. Start coding immediately</li>
+        <li>B. Define scope and stakeholders</li>
+        <li>C. Buy software tools</li>
+        <li>D. Ask for more budget</li>
+      </ul>
+      <p class="note">Correct direction: define scope and stakeholders.</p>
+    </section>
+    <section>
+      <h2>Level 2: WBS Builder</h2>
+      <p>A WBS is a deliverable-oriented decomposition of project work.</p>
+      <table>
+        <tr><th>Major Deliverable</th><th>Example Sub-deliverables</th></tr>
+        <tr><td>Requirements</td><td>Student interviews, admin interviews, functional requirements</td></tr>
+        <tr><td>Design</td><td>Wireframes, UI prototype, database design, API design</td></tr>
+        <tr><td>Development</td><td>Authentication, schedule module, notification module, admin dashboard</td></tr>
+        <tr><td>Testing</td><td>Unit testing, integration testing, user acceptance testing</td></tr>
+      </table>
+    </section>
+    <section>
+      <h2>Level 3: Schedule Rescue</h2>
+      <p>The first plan takes 15 weeks. The sponsor requires 12 weeks.</p>
+      <h3>Possible Recovery Actions</h3>
+      <ul>
+        <li>Parallelize UI and backend work.</li>
+        <li>Reduce non-critical scope.</li>
+        <li>Add temporary development support.</li>
+        <li>Delay advanced features.</li>
+        <li>Increase testing automation.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Level 4: Dashboard Detective</h2>
+      <table>
+        <tr><th>Metric</th><th>Planned</th><th>Actual</th></tr>
+        <tr><td>Progress</td><td>50%</td><td>38%</td></tr>
+        <tr><td>Cost</td><td>20,000 USD</td><td>24,000 USD</td></tr>
+        <tr><td>Critical bugs</td><td>0</td><td>12</td></tr>
+        <tr><td>Completed modules</td><td>4</td><td>2</td></tr>
+      </table>
+      <p class="danger">Diagnosis: late, over budget, and technically unstable.</p>
+    </section>
+    <section>
+      <h2>Level 5: Crisis Controller</h2>
+      <p>At week 8:</p>
+      <ul>
+        <li>Database integration fails.</li>
+        <li>QA reports many bugs.</li>
+        <li>The sponsor refuses to extend the deadline.</li>
+        <li>The team is overloaded.</li>
+      </ul>
+      <p>Prepare a three-minute recovery briefing.</p>
+    </section>
+    <section>
+      <h2>PMO Recovery Briefing</h2>
+      <ul>
+        <li>What happened?</li>
+        <li>What is the impact?</li>
+        <li>What corrective action is proposed?</li>
+        <li>What decision is needed from the sponsor?</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Badges</h2>
+      <div class="badge-row">
+        <span class="badge">Scope Master</span>
+        <span class="badge">WBS Architect</span>
+        <span class="badge">Schedule Optimizer</span>
+        <span class="badge">Dashboard Detective</span>
+        <span class="badge">Risk Analyst</span>
+        <span class="badge">Crisis Controller</span>
+      </div>
+    </section>
+    <section>
+      <h2>Assessment</h2>
+      <table>
+        <tr><th>Criterion</th><th>Weight</th></tr>
+        <tr><td>Scope clarity</td><td>15%</td></tr>
+        <tr><td>WBS quality</td><td>20%</td></tr>
+        <tr><td>Schedule and dependencies</td><td>20%</td></tr>
+        <tr><td>Risk analysis</td><td>15%</td></tr>
+        <tr><td>Tracking and control logic</td><td>20%</td></tr>
+        <tr><td>Professional presentation</td><td>10%</td></tr>
+      </table>
+    </section>
+    <section>
+      <h2>Exit Ticket</h2>
+      <ul>
+        <li>What is one difference between monitoring and controlling?</li>
+        <li>What was the most important corrective action in your group plan?</li>
+        <li>How did AI help your team during the activity?</li>
+        <li>What should a project manager never hide from the sponsor?</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

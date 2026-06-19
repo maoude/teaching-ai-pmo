@@ -1,0 +1,414 @@
+## Final Project Submission: Gamified AI-Assisted Pedagogical Module
+
+**Module title:**
+**From Plan to Control: Managing a Project Like a Real PMO**
+
+**Alignment:**
+This module is designed as a direct response to the AUF Final Project brief — Gamified AI-Assisted Pedagogical Module (AI Integration in Higher Education).
+
+**Target audience:**
+Third- or fourth-year university students in engineering, computer science, business, or management.
+
+**Duration:**
+One 3-hour immersive session, or two 90-minute sessions.
+
+**Core topic:**
+Project Management with emphasis on planning, WBS, execution optimization, tracking, control, risk, and corrective action.
+
+**Main teaching idea:**
+Students do not only listen to project management concepts. They enter a realistic project scenario, build the project plan, create a WBS, assign resources, face delays, track progress, analyze dashboards, and decide corrective actions — all inside a gamified progression system.
+
+**License:**
+CC-BY-NC (as required by the assignment brief).
+
+---
+
+# Objective 1 — Analyze and Define: Learning Objectives
+
+By the end of the module, students will be able to:
+
+1. Explain the full project management cycle: initiation, planning, execution, monitoring, control, and closing.
+2. Build a Work Breakdown Structure for a realistic project.
+3. Convert a WBS into tasks, dependencies, milestones, and deliverables.
+4. Estimate duration, cost, resources, and risks.
+5. Optimize execution by adjusting resources, sequencing, and priorities.
+6. Track progress using KPIs: planned value, earned value, actual cost, SV, CV, SPI, and CPI.
+7. Diagnose project problems from dashboards.
+8. Propose corrective actions when a project is late, over budget, or underperforming.
+9. Communicate project status in a professional PMO-style update.
+
+These objectives cover knowledge, comprehension, application, and creation — aligned with the Learning Variety criterion of the rubric.
+
+---
+
+# Objective 2 — Design the Scenario: Gamification Architecture
+
+## Gamification Framework
+
+The module uses a quest-based progression system. Students advance through levels by completing activities. Each level unlocks the next scenario phase. This directly addresses the 30% AI & Gamification Integration criterion.
+
+## Player Progression Map
+
+| Level | Name               | Duration | Activity                               | Badge Earned          |
+|------:|--------------------|----------|----------------------------------------|-----------------------|
+| 1     | Project Launch     | 45 min   | Opening poll + stakeholder map + charter | Scope Master         |
+| 2     | WBS Builder        | 35 min   | Deliverable-oriented WBS workshop      | WBS Architect         |
+| 3     | Schedule Rescue    | 35 min   | Gantt compression: 15 weeks → 12 weeks | Schedule Optimizer   |
+| 4     | Dashboard Detective| 35 min   | KPI dashboard reading and calculation  | Dashboard Detective   |
+| 5     | Crisis Controller  | 30 min   | Week 8 crisis + PMO briefing + exit ticket | Risk Analyst + Crisis Controller |
+
+## Points System
+
+| Performance Element                          | Points |
+|----------------------------------------------|-------:|
+| Clear project scope and stakeholders         | 10     |
+| Complete and deliverable-oriented WBS        | 20     |
+| Realistic schedule and dependencies          | 20     |
+| Correct KPI calculations and interpretation  | 20     |
+| Risk analysis and corrective actions         | 15     |
+| Professional PMO briefing                    | 15     |
+| **Total**                                    | **100**|
+
+## Reward Tiers
+
+| Score   | Title                      |
+|---------|----------------------------|
+| 85–100  | PMO Excellence Award       |
+| 70–84   | Project Recovery Certified |
+| 55–69   | Project Control Apprentice |
+| Below 55| Needs PMO Intervention     |
+
+## Gamification Mechanics Used
+
+- **Levels:** Five sequential levels corresponding to the PM lifecycle phases.
+- **Quests:** Each level contains one main quest (group activity) and one side quest (individual reflection or calculation).
+- **Badges:** Earned on completing each level. Displayed on a shared Genially leaderboard.
+- **Progression:** Students cannot advance to the next level until the current activity is submitted or voted on.
+- **Feedback:** Immediate automated feedback via Quizizz after each knowledge checkpoint.
+- **Rewards:** Badge collection displayed in real time. Top group earns the PMO Excellence Award.
+- **Leaderboard:** Optional competitive element tracked through Mentimeter or a shared Google Sheet.
+
+---
+
+# Objective 3 — Build the Module: AI Tool Stack and Module Structure
+
+## AI Tool Stack
+
+| Task                             | Tool                                        | Role in Module                                                        |
+|----------------------------------|---------------------------------------------|-----------------------------------------------------------------------|
+| Module architecture and pedagogy | ChatGPT / Gemini / Claude                   | Generates objectives, scenarios, quiz questions, crisis cards, rubrics |
+| Content grounding                | NotebookLM                                  | Sources PMBOK excerpts, course notes; produces summaries and FAQs     |
+| Module platform and export       | **Learning Designer**                       | Primary platform; exports CC-BY-NC module file; structures activity types |
+| Slide generation                 | Gamma → Canva                               | Gamma for first draft; Canva for visual polish                        |
+| Diagrams                         | Napkin AI / Mermaid / draw.io               | WBS tree, Gantt, RACI, risk matrix, control-loop diagrams             |
+| Interactive simulation           | Genially                                    | Branching quest screens, clickable decisions, animated crisis scenario |
+| Quizzes and assessment           | QuestionWell / Quizizz / MagicSchool AI     | Formative checkpoints after each level                                |
+| Spreadsheet simulation           | Google Sheets + ChatGPT                     | Live KPI dashboard; students manipulate schedule, budget, SPI, CPI   |
+| Student engagement               | Mentimeter / Wooclap / Kahoot               | Live polls, level-up votes, leaderboard                               |
+| Explanatory video                | Canva video / CapCut / Lumen5               | 5–10 min screen-recorded walkthrough of the module                    |
+
+Minimum 3 AI tools actively integrated: **NotebookLM + ChatGPT/Claude + Quizizz/QuestionWell + Genially**.
+
+---
+
+## Learning Designer Module Structure
+
+The module is built inside Learning Designer with the following activity type sequence, covering all required learning types:
+
+| # | Time   | Activity                          | Learning Type               | Tool                        |
+|---|--------|-----------------------------------|-----------------------------|-----------------------------|
+| 1 | 15 min | Opening scenario and decision poll | Acquisition + Discussion   | Genially + Mentimeter       |
+| 2 | 30 min | Planning and project charter      | Acquisition + Inquiry       | Slides + NotebookLM         |
+| 3 | 35 min | WBS workshop                      | Production + Collaboration  | Worksheet + Canva/Mermaid   |
+| 4 | 35 min | Schedule optimization             | Practice + Collaboration    | Google Sheets               |
+| 5 | 35 min | Dashboard and KPI analysis        | Practice + Inquiry          | Google Sheets + Quizizz     |
+| 6 | 20 min | Crisis simulation                 | Discussion + Production     | Genially                    |
+| 7 | 10 min | Final briefing and reflection     | Production + Reflection     | Briefing template + Google Forms |
+
+This sequence ensures full coverage of the Learning Variety criterion (acquisition, inquiry, practice, production, collaboration, discussion, reflection).
+
+---
+
+## Case Scenario: Smart Campus Mobile App
+
+A university wants to build a Smart Campus Mobile App in 12 weeks.
+
+The app includes: student login, course schedule, exam calendar, notifications, room reservation, complaint/request system, admin dashboard, pilot deployment.
+
+Constraints:
+- Budget: $40,000
+- Duration: 12 weeks
+- Team: 1 PM, 2 backend developers, 2 mobile developers, 1 UI/UX designer, 1 QA tester
+- Risk: integration delay with university database
+- Sponsor pressure: first demo required by week 6
+
+This case is immediately understood by engineering and management students.
+
+---
+
+## Level-by-Level Module Detail
+
+### Level 1 — Project Launch (45 min)
+**Activity type:** Acquisition + Inquiry + Production
+**Tools:** Genially, Mentimeter/Wooclap, NotebookLM, Gamma, Canva
+
+**Part A — Opening scenario (15 min):**
+Students see an animated opening: the university president announces the Smart Campus App project. Students vote on the first PM action:
+- A. Start coding immediately
+- B. Define scope and stakeholders ← correct
+- C. Buy tools
+- D. Ask for more budget
+
+**Part B — Planning and charter (30 min):**
+Concepts: project charter, stakeholder analysis, scope statement, deliverables, assumptions, success criteria.
+
+Main quest: Students identify five stakeholders and write three measurable success criteria.
+Side quest (individual): Write a one-sentence project vision statement.
+
+AI responsibility: ChatGPT writes the scenario. Genially makes it interactive. Mentimeter collects votes. NotebookLM summarizes PM concepts from uploaded sources. Gamma generates slides. Canva refines design.
+
+Reward: **Scope Master** badge unlocked.
+
+---
+
+### Level 2 — WBS Builder (35 min)
+**Activity type:** Production + Collaboration
+**Tools:** Napkin AI / Mermaid / draw.io, Canva, Genially
+
+Students learn that the WBS is a deliverable-oriented decomposition, not a task list.
+
+Example WBS:
+1. Smart Campus App
+  1.1 Project Management (Charter, Schedule, Risk plan, Status reports)
+  1.2 Requirements (Interviews, Functional + Non-functional requirements)
+  1.3 Design (Wireframes, UI prototype, Database design, API design)
+  1.4 Development (Authentication, Schedule, Notifications, Room reservation, Admin dashboard)
+  1.5 Testing (Unit, Integration, UAT)
+  1.6 Deployment (Pilot, Feedback, Final launch)
+
+Group quest: Each group receives a different project and creates a WBS in 10 minutes.
+- Group A: Smart campus app
+- Group B: AI attendance system
+- Group C: Cybersecurity awareness campaign
+- Group D: IoT parking system
+- Group E: Online exam platform
+
+Reward: **WBS Architect** badge unlocked.
+
+---
+
+### Level 3 — Schedule Rescue (35 min)
+**Activity type:** Practice + Production
+**Tools:** Google Sheets, ChatGPT, Canva
+
+Students convert WBS items into a schedule:
+
+| Task                    | Duration | Dependency   | Owner        |
+|-------------------------|----------|--------------|--------------|
+| Requirements interviews | 1 week   | None         | PM + Analyst |
+| UI prototype            | 2 weeks  | Requirements | Designer     |
+| Backend API             | 3 weeks  | Requirements | Backend team |
+| Mobile app screens      | 3 weeks  | UI prototype | Mobile team  |
+| Integration testing     | 2 weeks  | API + Mobile | QA           |
+| Pilot deployment        | 1 week   | Testing      | Full team    |
+
+Optimization challenge: The first plan takes 15 weeks. The sponsor requires 12. Students choose:
+- Parallelize UI and backend work
+- Add one temporary developer
+- Reduce non-critical scope
+- Delay advanced features
+- Increase testing automation
+
+Students apply changes in Google Sheets and observe the new total duration.
+
+Reward: **Schedule Optimizer** badge unlocked.
+
+---
+
+### Level 4 — Dashboard Detective (35 min)
+**Activity type:** Practice + Discussion
+**Tools:** Google Sheets, Genially, Quizizz
+
+Students receive a project dashboard at week 6:
+
+| Metric            | Planned | Actual  |
+|-------------------|---------|---------|
+| Progress          | 50%     | 38%     |
+| Cost              | $20,000 | $24,000 |
+| Critical bugs     | 0       | 12      |
+| Completed modules | 4       | 2       |
+
+Students calculate:
+- Schedule Variance = EV − PV
+- Cost Variance = EV − AC
+- SPI = EV / PV
+- CPI = EV / AC
+
+Discussion quest: Is the project healthy? What does the PM do next?
+
+Quizizz checkpoint after discussion. Wrong answers give immediate explanatory feedback — no penalty, only learning.
+
+Reward: **Dashboard Detective** badge unlocked.
+
+---
+
+### Level 5 — Crisis Controller (30 min)
+**Activity type:** Collaboration + Production + Reflection
+**Tools:** Genially, ChatGPT, Mentimeter/Wooclap, Canva, Google Forms
+
+**Part A — Crisis simulation (20 min):**
+
+Week 8 crisis scenario:
+- Database integration fails.
+- QA reports many bugs.
+- Sponsor refuses to extend deadline.
+- Team is overloaded.
+
+Groups choose one recovery strategy:
+- A. Add more features to impress the sponsor
+- B. Freeze scope and focus on login, schedule, notifications ← correct
+- C. Stop testing to save time
+- D. Hide the delay until week 12
+
+Output required: A 3-minute PMO recovery briefing covering:
+- What happened?
+- What is the impact?
+- What corrective action is proposed?
+- What decision is needed from the sponsor?
+
+Reward: **Risk Analyst** + **Crisis Controller** badges unlocked.
+
+**Part B — Exit ticket and reflection (10 min):**
+
+Students answer individually via Google Forms or MagicSchool AI:
+1. What was the most important PM decision you made today?
+2. What would you do differently if you were the real PM?
+3. Rate your confidence in reading a project dashboard (1–5).
+
+Top-scoring groups receive the PMO Excellence Award (generated by Canva or Genially).
+
+---
+
+# Objective 4 — Present and Iterate
+
+## Required Deliverables (matching the assignment brief)
+
+### Deliverable 1 — Learning Designer Export
+- Built in Learning Designer with all 7 activity blocks.
+- Released under CC-BY-NC license.
+- Integrates at least 3 AI tools: NotebookLM, ChatGPT/Claude, Quizizz/QuestionWell, Genially.
+- Covers all required learning activity types: acquisition, inquiry, practice, production, collaboration, reflection.
+
+### Deliverable 2 — Explanatory Video (5–10 minutes)
+Screen-recorded walkthrough covering:
+1. (0:00–1:00) Module overview: title, audience, learning objectives.
+2. (1:00–2:30) Gamification system: how levels, badges, and quests work.
+3. (2:30–4:30) AI tools demonstration: show NotebookLM, Genially simulation, Quizizz checkpoint, Google Sheets dashboard.
+4. (4:30–6:30) Walk through two student-facing activities (WBS Builder and Crisis Controller).
+5. (6:30–8:00) Show Learning Designer module layout and activity type sequence.
+6. (8:00–end) Pedagogical justification: why this design supports the stated learning objectives.
+
+Production: record with OBS or Loom; edit in CapCut or Canva video; export as MP4; host on YouTube or Google Drive (public, no login required).
+
+### Deliverable 3 — Learning Designer Public Link
+A publicly accessible link to the Learning Designer module.
+Open and viewable by everyone without login.
+
+---
+
+## Iteration Plan
+
+After peer presentation:
+- Collect feedback via a short Google Form (3 questions: clarity, engagement, realism).
+- Adjust gamification pacing if levels feel too fast or too slow.
+- Replace or simplify any AI tool that proved difficult to access in the classroom.
+- Update Learning Designer module and re-export.
+
+---
+
+# Assessment
+
+## Formative (during module)
+
+| Assessment       | Tool                   | Level     |
+|------------------|------------------------|-----------|
+| Opening poll     | Mentimeter/Wooclap     | Level 1   |
+| WBS group work   | Canva / draw.io        | Level 2   |
+| Schedule fix     | Google Sheets          | Level 3   |
+| KPI checkpoint   | Quizizz/QuestionWell   | Level 4   |
+| Crisis decision  | Genially               | Level 5   |
+| Exit ticket      | Google Forms           | Level 5   |
+
+## Summative (after module)
+
+Students submit a mini project plan for a project of their choice.
+
+Required deliverables:
+1. Project charter
+2. WBS
+3. Schedule table
+4. Risk register
+5. Tracking dashboard
+6. Corrective action report
+
+Grading rubric:
+
+| Criterion                 | Weight |
+|---------------------------|--------|
+| Scope clarity             | 15%    |
+| WBS quality               | 20%    |
+| Schedule and dependencies | 20%    |
+| Risk analysis             | 15%    |
+| Tracking/control logic    | 20%    |
+| Professional presentation | 10%    |
+
+---
+
+# Alignment Checklist with AUF Rubric
+
+| Rubric Criterion (weight)         | How this module addresses it                                                                                   |
+|-----------------------------------|----------------------------------------------------------------------------------------------------------------|
+| Pedagogical Relevance (20%)       | 9 clear measurable objectives; activities build logically from planning → control → crisis management          |
+| AI & Gamification Integration (30%) | 4+ AI tools used purposefully; 5-level quest system with badges, points, progression, feedback, and rewards  |
+| Learning Variety (20%)            | All 6 types covered: acquisition, inquiry, practice, production, collaboration, reflection                     |
+| Scenario Quality (15%)            | Progressive Smart Campus scenario; each level adds a new complication; activities build toward stated outcomes |
+| Feasibility & Presentation (15%)  | All tools are free or freemium; explanatory video plan included; module is classroom-ready                     |
+
+---
+
+# End-to-End Production Workflow
+
+Step 1 — Define mission: Use ChatGPT/Claude to draft objectives, scenario, and gamification map.
+Step 2 — Ground content: Upload PMBOK/notes to NotebookLM; extract summaries, FAQ, quiz questions.
+Step 3 — Build Learning Designer module: Create all 7 activity blocks; set CC-BY-NC license; publish public link.
+Step 4 — Generate first slide deck: Use Gamma for draft; refine in Canva.
+Step 5 — Create diagrams: WBS tree, Gantt, RACI, risk matrix, EV dashboard via Napkin AI / Mermaid / draw.io.
+Step 6 — Build Genially simulation: 7-screen branching quest for the crisis scenario.
+Step 7 — Generate quizzes: Use QuestionWell or Quizizz; align questions to each level's objective.
+Step 8 — Build Google Sheets dashboard: Include WBS, Schedule, Budget, Risks, Progress, KPI tabs.
+Step 9 — Record explanatory video: Screen record using OBS or Loom; edit in CapCut; publish publicly.
+Step 10 — Deliver and iterate: Present to peers; collect feedback; refine module; re-export from Learning Designer.
+
+---
+
+# Best Architecture Summary
+
+**NotebookLM → ChatGPT/Claude → Learning Designer → Gamma → Canva → Genially → Google Sheets → Quizizz → Explanatory Video → Classroom delivery**
+
+- NotebookLM: reliable, source-grounded content.
+- ChatGPT/Claude: instructional design, scenarios, quiz generation.
+- Learning Designer: module structure, CC-BY-NC export, public link.
+- Gamma + Canva: slide deck production.
+- Genially: immersive gamified simulation.
+- Google Sheets: hands-on KPI practice.
+- Quizizz: formative assessment with instant feedback.
+- Explanatory Video: demonstrates the module to evaluators.
+- The professor: provides judgment, correction, explanation, and pedagogical authority.
+
+[1]: https://notebooklm.google/ "Google NotebookLM"
+[2]: https://gamma.app/pricing "Gamma Plans and Pricing"
+[3]: https://www.canva.com/magic-design/ "Canva Magic Design"
+[4]: https://www.canva.com/create/ai-presentations/ "Canva AI Presentations"
+[5]: https://genially.com/ "Genially"
+[6]: https://questionwell.org/ "QuestionWell"
+[7]: https://www.magicschool.ai/ "MagicSchool AI"
