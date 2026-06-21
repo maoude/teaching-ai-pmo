@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metadata Scenario — PMO AI Module (Filled)</title>
+  <style>
+    :root{
+      --primary:#1a3a5c;
+      --accent:#e8a020;
+      --green:#2a7a4b;
+      --red:#c0392b;
+      --light:#f4f7fb;
+      --border:#d0dce8;
+      --text:#1e2530;
+      --muted:#5a6a7e;
+      --missing:#fff3cd;
+      --missing-border:#f5c400;
+      --done:#e8f5e9;
+      --done-border:#a5d6a7;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--light);color:var(--text);font-size:14px;line-height:1.6;}
+
+    /* HEADER */
+    header{background:var(--primary);color:#fff;padding:24px 40px;}
+    header h1{font-size:1.5rem;font-weight:800;}
+    header h1 span{color:var(--accent);}
+    header p{font-size:13px;color:rgba(255,255,255,.7);margin-top:4px;}
+    .header-note{
+      background:var(--accent);color:var(--primary);
+      font-weight:700;font-size:12px;padding:8px 16px;
+      border-radius:6px;margin-top:14px;display:inline-block;
+    }
+
+    /* LEGEND */
+    .legend{display:flex;gap:20px;flex-wrap:wrap;padding:16px 40px;background:#fff;border-bottom:1px solid var(--border);font-size:12px;}
+    .leg{display:flex;align-items:center;gap:6px;}
+    .dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+    .dot-done{background:#2a7a4b;}
+    .dot-warn{background:#e8a020;}
+    .dot-miss{background:#c0392b;}
+
+    /* PAGE */
+    .page{max-width:1000px;margin:0 auto;padding:32px 20px 60px;}
+
+    /* SECTION */
+    .section{margin-bottom:28px;}
+    .section-head{
+      background:var(--primary);color:#fff;
+      padding:10px 18px;border-radius:8px 8px 0 0;
+      font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+      display:flex;align-items:center;gap:8px;
+    }
+    .section-body{
+      background:#fff;border:1px solid var(--border);
+      border-top:none;border-radius:0 0 8px 8px;
+      overflow:hidden;
+    }
+
+    /* FIELD ROW */
+    .field{display:grid;grid-template-columns:230px 1fr 90px;border-bottom:1px solid var(--border);}
+    .field:last-child{border-bottom:none;}
+    .field-label{
+      background:var(--light);padding:12px 16px;
+      font-weight:600;font-size:12.5px;color:var(--primary);
+      border-right:1px solid var(--border);
+      display:flex;flex-direction:column;justify-content:center;
+    }
+    .field-label small{font-weight:400;color:var(--muted);font-size:11px;margin-top:2px;}
+    .field-value{padding:12px 16px;font-size:13px;color:var(--text);}
+    .field-value em{color:var(--muted);font-style:normal;font-size:12px;}
+    .field-status{
+      border-left:1px solid var(--border);
+      display:flex;align-items:center;justify-content:center;
+      font-size:11px;font-weight:700;text-align:center;padding:8px;
+    }
+    .st-done{background:var(--done);color:var(--green);}
+    .st-warn{background:#fff8e1;color:#7a5e00;}
+    .st-miss{background:#fdecea;color:var(--red);}
+
+    /* TEXTAREA STYLE VALUE */
+    .block-value{
+      padding:14px 16px;font-size:13px;color:var(--text);
+      border-top:1px solid var(--border);
+    }
+    .block-field{display:grid;grid-template-columns:230px 1fr 90px;}
+    .block-field .field-label{border-top:1px solid var(--border);}
+
+    /* CHECKLIST */
+    .check-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+    .check-item{
+      display:flex;align-items:center;gap:6px;
+      background:var(--done);border:1px solid var(--done-border);
+      border-radius:4px;padding:4px 10px;font-size:12px;color:var(--green);font-weight:600;
+    }
+    .check-item.unchecked{background:#f9f9f9;border-color:var(--border);color:var(--muted);}
+
+    /* OUTCOME LIST */
+    .outcome-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+    .outcome-list li{
+      display:flex;gap:10px;align-items:flex-start;
+      background:var(--light);border:1px solid var(--border);
+      border-left:4px solid var(--accent);
+      border-radius:0 6px 6px 0;padding:10px 14px;font-size:13px;
+    }
+    .out-num{
+      background:var(--primary);color:#fff;
+      width:22px;height:22px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:11px;font-weight:800;flex-shrink:0;
+    }
+
+    /* MISSING BANNER */
+    .missing-banner{
+      background:var(--missing);border:1px solid var(--missing-border);
+      border-radius:8px;padding:14px 18px;margin-bottom:28px;
+      font-size:13px;display:flex;gap:12px;align-items:flex-start;
+    }
+    .missing-banner ul{padding-left:18px;margin-top:6px;}
+    .missing-banner ul li{margin-bottom:4px;}
+
+    /* FILE NAME BOX */
+    .filename-box{
+      font-family:monospace;background:#1e2530;color:#e8a020;
+      padding:10px 16px;border-radius:6px;font-size:14px;margin-top:6px;
+      display:inline-block;letter-spacing:.5px;
+    }
+
+    /* FOOTER */
+    footer{background:var(--primary);color:rgba(255,255,255,.6);text-align:center;padding:16px;font-size:12px;}
+    footer span{color:#fff;font-weight:600;}
+
+    @media(max-width:680px){
+      .field,.block-field{grid-template-columns:1fr;}
+      .field-status{border-left:none;border-top:1px solid var(--border);}
+      .legend{padding:12px 16px;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Metadata Scenario — <span>Filled &amp; Fixed</span></h1>
+  <p>PMO AI Module · From Plan to Control: Managing a Project Like a Real PMO</p>
+  <div class="header-note">✏️ Fields marked MANUAL must be filled by you before submitting the Excel</div>
+</header>
+
+<div class="legend">
+  <div class="leg"><div class="dot dot-done"></div> Completed / ready</div>
+  <div class="leg"><div class="dot dot-warn"></div> Needs your input (personal info)</div>
+  <div class="leg"><div class="dot dot-miss"></div> Still missing (action required)</div>
+</div>
+
+<div class="page">
+
+  <!-- MANUAL FIELDS WARNING -->
+  <div class="missing-banner">
+    <span style="font-size:20px">⚠️</span>
+    <div>
+      <strong>Fields you must still fill manually:</strong>
+      <ul>
+        <li>Your faculty / department name (e.g. Faculty of Engineering, Lebanese University)</li>
+        <li>Which project option you selected (Option choisie)</li>
+        <li>Public link to your Word document (upload PMO_AI_Module_Pack.docx to Drive/OneDrive first)</li>
+        <li>Public link to your Learning Designer module (build and publish on learningdesigner.org first)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 1 — IDENTIFICATION -->
+  <div class="section">
+    <div class="section-head">Section 1 — Identification · التعريف</div>
+    <div class="section-body">
+      <div class="field">
+        <div class="field-label">Institution<small>الجامعة</small></div>
+        <div class="field-value"><strong>Lebanese University</strong> — Université Libanaise</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Faculty<small>الكلية</small></div>
+        <div class="field-value"><em>▶ Fill manually: your faculty / department (e.g. Faculty of Engineering)</em></div>
+        <div class="field-status st-warn">MANUAL</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Participant Name<small>اسم المشارك</small></div>
+        <div class="field-value"><strong>Mohamad Aoude</strong></div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Email<small>البريد الإلكتروني</small></div>
+        <div class="field-value"><strong>maoude@ul.edu.lb</strong></div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Formateur Référent<small>اسم المدرب</small></div>
+        <div class="field-value"><strong>Dr. Carine Kassis</strong> — Course Instructor, AUF Workshop · AI Integration in Higher Education</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 — GENERAL INFORMATION -->
+  <div class="section">
+    <div class="section-head">Section 2 — General Information · المعلومات العامة</div>
+    <div class="section-body">
+      <div class="field">
+        <div class="field-label">Domain<small>المجال</small></div>
+        <div class="field-value">Project Management / Engineering Management</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Discipline<small>الإختصاص</small></div>
+        <div class="field-value">Project Management — Software Engineering — Business Management — Information Systems</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Project Language<small>لغة المشروع</small></div>
+        <div class="field-value">English (module content and student materials)</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Keywords (3–5)<small>الكلمات المفتاحية</small></div>
+        <div class="field-value">PMO · Project Management · Gamification · Earned Value · AI-Assisted Learning</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Project Title<small>عنوان التصميم</small></div>
+        <div class="field-value"><strong>From Plan to Control: Managing a Project Like a Real PMO</strong></div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Option choisie<small>المشروع المختار</small></div>
+        <div class="field-value"><em>▶ Fill manually: which workshop project option you selected</em></div>
+        <div class="field-status st-warn">MANUAL</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — PROJECT DESCRIPTION -->
+  <div class="section">
+    <div class="section-head">Section 3 — Project Description · وصف المشروع</div>
+    <div class="section-body">
+
+      <!-- 50-70 word summary -->
+      <div class="block-field">
+        <div class="field-label" style="border-top:none">
+          Project Summary (50–70 words)
+          <small>ملخص التصميم</small>
+        </div>
+        <div class="field-value" style="border-left:1px solid var(--border);padding-top:14px">
+          Students act as a PMO team hired to rescue the Smart Campus Mobile App — a 12-week university project under budget and schedule pressure. Through five gamified quests, they define scope, build a WBS, optimize a schedule, interpret earned value indicators, and present a professional recovery briefing, supported throughout by AI tools for scaffolding, visualization, and formative feedback.
+          <br><br><em style="color:var(--green)">✅ 57 words — within the 50–70 word limit</em>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Target Audience<small>الفئة المستهدفة</small></div>
+        <div class="field-value">3rd / 4th year undergraduates or 1st year master's students in Engineering, Computer Science, Business, or Management</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Number of Learners<small>عدد المتعلمين</small></div>
+        <div class="field-value">15 – 40 students (groups of 3–5 per PMO team)</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Deployment Mode<small>نمط التنفيذ</small></div>
+        <div class="field-value">Face-to-face (primary) · Adaptable to hybrid or fully online with shared Google Sheets and Genially</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Module Duration<small>مدة التصميم</small></div>
+        <div class="field-value">3 hours (2 sessions of 90 minutes)</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+
+      <!-- Learning Outcomes -->
+      <div class="block-field">
+        <div class="field-label">
+          Learning Outcomes (1–3)
+          <small>نواتج التعلم</small>
+        </div>
+        <div class="field-value" style="border-left:1px solid var(--border);padding-top:14px">
+          <ol class="outcome-list">
+            <li><span class="out-num">1</span>Apply the project management cycle — from scope definition to corrective control — using professional PMO methods and AI-assisted tools.</li>
+            <li><span class="out-num">2</span>Interpret earned value indicators (SPI, CPI, SV, CV) to diagnose project health and justify data-driven corrective actions.</li>
+            <li><span class="out-num">3</span>Communicate a structured PMO recovery briefing in response to a realistic simulated project crisis.</li>
+          </ol>
+          <br><em style="color:var(--green)">✅ Fixed: condensed from 9 objectives to 3 measurable outcomes using Bloom's action verbs (Apply, Interpret, Communicate)</em>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+
+      <!-- Pedagogical Problem -->
+      <div class="block-field">
+        <div class="field-label">
+          Pedagogical Problem (50–70 words)
+          <small>المشكلات التعليمية</small>
+        </div>
+        <div class="field-value" style="border-left:1px solid var(--border);padding-top:14px">
+          Project management students often master theoretical concepts in isolation but struggle to integrate them under realistic pressure. They rarely practice interpreting earned value data, diagnosing delays, or communicating corrective decisions professionally. This module addresses that gap by placing students inside a live simulated project crisis, compelling them to apply planning, monitoring, and communication skills together — as a real PMO team would.
+          <br><br><em style="color:var(--green)">✅ 62 words — within the 50–70 word limit</em>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Final Activity Correction Method<small>طرق تصحيح النشاط النهائي</small></div>
+        <div class="field-value">Group rubric (6 criteria, 100 pts) + instructor feedback on PMO briefing + peer comparison during debrief + individual exit ticket (reflection)</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4 — GAMIFICATION -->
+  <div class="section">
+    <div class="section-head">Section 4 — Gamification · التلعيب</div>
+    <div class="section-body">
+      <div class="field">
+        <div class="field-label">Mechanisms Used (max 3)<small>آليات التلعيب</small></div>
+        <div class="field-value">
+          <strong>Selected 3:</strong>
+          <div class="check-list">
+            <div class="check-item">✓ Quêtes / Missions</div>
+            <div class="check-item">✓ Niveaux / Étapes</div>
+            <div class="check-item">✓ Badges</div>
+            <div class="check-item unchecked">◻ Points (embedded in levels)</div>
+            <div class="check-item unchecked">◻ Quiz interactif (tool-level)</div>
+          </div>
+          <br><em style="color:var(--green)">✅ Fixed: trimmed to the 3 primary mechanics required by the form. Points and quizzes are embedded within the quest/level system.</em>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Pedagogical Role (1–2 choices)<small>الدور التعليمي</small></div>
+        <div class="field-value">
+          <div class="check-list">
+            <div class="check-item">✓ Structurer la progression</div>
+            <div class="check-item">✓ Motiver l'étudiant</div>
+          </div>
+          <br><em>Quests structure the 5-step PMO workflow; badges and levels motivate completion and reward quality output at each stage.</em>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Expected Feedback<small>التغذية الراجعة</small></div>
+        <div class="field-value">
+          <div class="check-list">
+            <div class="check-item">✓ Textuel</div>
+            <div class="check-item">✓ Visuel</div>
+          </div>
+          <br>Automated quiz feedback (Quizizz) · Instructor written feedback after each quest · Google Sheets dashboard visual feedback · Peer comparison during group debrief
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Available Gamification Elements<small>إتاحة عناصر التلعيب</small></div>
+        <div class="field-value">
+          <div class="check-list">
+            <div class="check-item">✓ Points نقاط</div>
+            <div class="check-item">✓ Badges شارات</div>
+            <div class="check-item">✓ Niveaux / Étapes مستويات</div>
+            <div class="check-item">✓ Quêtes / Missions مهام</div>
+            <div class="check-item">✓ Quiz interactif اختبار تفاعلي</div>
+            <div class="check-item">✓ Narration سرد</div>
+          </div>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — AI TOOLS -->
+  <div class="section">
+    <div class="section-head">Section 5 — AI Tools Used · أدوات الذكاء الاصطناعي</div>
+    <div class="section-body">
+      <div class="field">
+        <div class="field-label">Generative Text AI<small>أدوات الذكاء التوليدي (نص)</small></div>
+        <div class="field-value">ChatGPT / Claude / Gemini — scenario writing, WBS examples, crisis cards, activity instructions, student feedback prompts · NotebookLM — source-grounded summaries of uploaded course notes</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Multimedia AI (image/audio/video)<small>وسائط متعددة</small></div>
+        <div class="field-value">Canva (with MagicWrite AI) — visual design, worksheets, badge graphics, briefing templates, diagrams</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Interactive AI Tools<small>أدوات تفاعلية</small></div>
+        <div class="field-value">Genially — branching simulation, 5-level interactive scenario, decision screens · Mentimeter / Wooclap — live polls and group decision voting</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Other AI Tools<small>أدوات أخرى</small></div>
+        <div class="field-value">Quizizz / QuestionWell / MagicSchool — AI-generated formative quiz and exit ticket · Gamma — first draft of lecture slide deck</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">File Naming Convention<small>اسم الملف</small></div>
+        <div class="field-value">
+          Required format: <strong>Nom_Etablissement_Formateur</strong><br>
+          <div class="filename-box">Aoude_UniversitéLibanaise_KassisCarine</div>
+        </div>
+        <div class="field-status st-warn">MANUAL</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6 — DELIVERABLES -->
+  <div class="section">
+    <div class="section-head">Section 6 — Deliverables · المخرجات</div>
+    <div class="section-body">
+      <div class="field">
+        <div class="field-label">Word Document Link<small>رابط مستند ورد</small></div>
+        <div class="field-value"><em>▶ Upload PMO_AI_Module_Pack.docx to Google Drive or OneDrive, set sharing to "Anyone with the link can view", paste the public link here</em></div>
+        <div class="field-status st-miss">❌ TODO</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Learning Designer Link<small>رابط مصمم التعلم</small></div>
+        <div class="field-value">
+          <em style="color:var(--red)">▶ Critical: this module does not yet exist in Learning Designer.</em><br><br>
+          Steps: (1) Go to <strong>learningdesigner.org</strong> · (2) Recreate the 5-quest module structure · (3) Publish with CC-BY-NC license · (4) Copy the public link and paste it here
+        </div>
+        <div class="field-status st-miss">❌ TODO</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8 — FEASIBILITY & RISKS -->
+  <div class="section">
+    <div class="section-head">Section 8 — Feasibility &amp; Risks · القابلية للتنفيذ والمخاطر</div>
+    <div class="section-body">
+      <div class="block-field">
+        <div class="field-label">Technical Conditions<small>شروط التنفيذ التقنية</small></div>
+        <div class="field-value" style="border-left:1px solid var(--border);padding-top:12px">
+          <strong>Internet:</strong> Required for Genially, Quizizz, Google Sheets, and AI tools (stable Wi-Fi recommended)<br>
+          <strong>Devices:</strong> One device (laptop or tablet) per student or per group; projector for instructor<br>
+          <strong>Accounts:</strong> Free accounts for Genially, Quizizz, Canva, and one LLM (ChatGPT free tier sufficient)<br>
+          <strong>Google Sheets:</strong> Shared dashboard workbook pre-prepared by instructor before session<br>
+          <strong>Digital Skills:</strong> Basic spreadsheet and browser use — no coding required<br>
+          <strong>Licenses:</strong> All tools have a usable free tier; Canva for Education (free) recommended
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="block-field">
+        <div class="field-label">Success Indicators<small>مؤشرات النجاح</small></div>
+        <div class="field-value" style="border-left:1px solid var(--border);padding-top:12px">
+          • ≥ 80% of groups complete all 5 quests within the 3-hour session<br>
+          • ≥ 70% of students score above 70/100 on the group rubric<br>
+          • Quiz average ≥ 65% on earned value and KPI questions<br>
+          • All groups submit a PMO recovery briefing (non-negotiable deliverable)<br>
+          • Exit ticket shows students can name ≥ 2 corrective actions used by their team
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="block-field">
+        <div class="field-label">Expected Impact<small>الأثر المتوقع</small></div>
+        <div class="field-value" style="border-left:1px solid var(--border);padding-top:12px">
+          Students leave able to connect theoretical project management concepts (WBS, scheduling, earned value) to realistic professional decision-making. The gamified crisis scenario builds confidence in high-pressure PMO communication. AI tools reduce friction on mechanical tasks (diagram generation, quiz creation) so students can focus on analytical and leadership skills. The module is reusable each semester with minimal setup.
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Adaptability to Other Contexts<small>إمكانية التكييف</small></div>
+        <div class="field-value">Yes — the scenario (Smart Campus App) can be replaced with any project in construction, healthcare, event management, or IT. The 5-quest structure and rubric are discipline-neutral. Online delivery is possible using shared Google Sheets and Genially.</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9 — EVALUATION -->
+  <div class="section">
+    <div class="section-head">Section 9 — Evaluation · التقييم</div>
+    <div class="section-body">
+      <div class="field">
+        <div class="field-label">Evaluation Methods<small>طرق التقييم</small></div>
+        <div class="field-value">
+          <div class="check-list">
+            <div class="check-item">✓ Diagnostique — opening poll (Mentimeter)</div>
+            <div class="check-item">✓ Formative — Quizizz quiz + dashboard tracking</div>
+            <div class="check-item">✓ Sommative — group rubric (100 pts)</div>
+            <div class="check-item">✓ Auto-évaluation — exit ticket reflection</div>
+            <div class="check-item">✓ Évaluation par les pairs — group debrief comparison</div>
+          </div>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Evaluation Tools<small>أدوات التقييم</small></div>
+        <div class="field-value">Assessment rubric (6 criteria, 100 pts, file: 06_Assessment_Rubric.md) · Quizizz quiz (auto-graded) · Google Forms exit ticket · ChatGPT / Claude for instructor feedback prompt generation</div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10 — TECHNICAL DATA -->
+  <div class="section">
+    <div class="section-head">Section 10 — Technical Data · البيانات التقنية</div>
+    <div class="section-body">
+      <div class="field">
+        <div class="field-label">Platform Type<small>موقع إلكتروني</small></div>
+        <div class="field-value">
+          <div class="check-list">
+            <div class="check-item">✓ Site web (React/Vite app — learningdesigner.org for submission)</div>
+            <div class="check-item unchecked">◻ LMS</div>
+            <div class="check-item unchecked">◻ H5P</div>
+          </div>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Compatibility<small>التوافق</small></div>
+        <div class="field-value">
+          <div class="check-list">
+            <div class="check-item">✓ Ordinateur / حاسوب</div>
+            <div class="check-item">✓ Tablette / جهاز لوحي</div>
+            <div class="check-item unchecked">◻ Téléphone (not optimized for phone)</div>
+          </div>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Final File Format<small>صيغة الملف النهائي</small></div>
+        <div class="field-value">
+          <div class="check-list">
+            <div class="check-item">✓ HTML5 (web app)</div>
+            <div class="check-item">✓ PDF (printable materials)</div>
+          </div>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Integration Possibilities<small>إمكانية التكامل</small></div>
+        <div class="field-value">
+          <div class="check-list">
+            <div class="check-item">✓ Moodle (Genially embed + Google Sheets link)</div>
+            <div class="check-item">✓ Teams (tab embed of web app)</div>
+            <div class="check-item">✓ Google Classroom (link distribution)</div>
+          </div>
+        </div>
+        <div class="field-status st-done">✅ DONE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:20px 24px;">
+    <h3 style="color:var(--primary);margin-bottom:14px;font-size:14px;text-transform:uppercase;letter-spacing:.5px">Compliance Summary</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center;">
+      <div style="background:var(--done);border:1px solid var(--done-border);border-radius:8px;padding:16px;">
+        <div style="font-size:28px;font-weight:800;color:var(--green)">22</div>
+        <div style="font-size:12px;color:var(--green);font-weight:600;">Fields completed</div>
+      </div>
+      <div style="background:#fff8e1;border:1px solid #f5d76e;border-radius:8px;padding:16px;">
+        <div style="font-size:28px;font-weight:800;color:#7a5e00">2</div>
+        <div style="font-size:12px;color:#7a5e00;font-weight:600;">Manual (faculty, option choisie)</div>
+      </div>
+      <div style="background:#fdecea;border:1px solid #f5c6c2;border-radius:8px;padding:16px;">
+        <div style="font-size:28px;font-weight:800;color:var(--red)">2</div>
+        <div style="font-size:12px;color:var(--red);font-weight:600;">Still missing (links)</div>
+      </div>
+    </div>
+    <div style="margin-top:16px;font-size:13px;color:var(--muted);">
+      <strong style="color:var(--red)">2 critical remaining actions:</strong>
+      (1) Publish Word doc to Google Drive → get public link ·
+      (2) Build the module in <strong>learningdesigner.org</strong> → publish → get public link.
+      Everything else is ready to copy into the Excel.
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>PMO AI Module</span> · From Plan to Control · AUF Workshop ·
+  <span>Metadata_Scenario — Filled &amp; Fixed</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Project — Mohamad Aoude — Lebanese University</title>
+  <style>
+    :root {
+      --primary:   #1a3a5c;
+      --accent:    #e8a020;
+      --green:     #2a7a4b;
+      --light-bg:  #f4f7fb;
+      --card-bg:   #ffffff;
+      --border:    #d0dce8;
+      --text:      #1e2530;
+      --muted:     #5a6a7e;
+      --tag-ai:    #e8f4fd;
+      --tag-ai-border: #3498db;
+      --tag-game:  #fdf4e7;
+      --tag-game-border: #e8a020;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--light-bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* ── Header ─────────────────────────────────── */
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 0;
+    }
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      border-bottom: 3px solid var(--accent);
+    }
+    .header-logos { display: flex; align-items: center; gap: 24px; }
+    .logo-box {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .5px;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .header-badge {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .header-main {
+      padding: 32px 40px 28px;
+      text-align: center;
+    }
+    .header-main h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .header-main h1 span { color: var(--accent); }
+    .header-sub {
+      margin-top: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: .4px;
+    }
+    .header-pills {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+
+    /* ── Layout ──────────────────────────────────── */
+    .page { max-width: 960px; margin: 0 auto; padding: 36px 24px 60px; }
+
+    /* ── Section titles ──────────────────────────── */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px 8px 0 0;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+    .section-title .icon { font-size: 16px; }
+
+    /* ── Card ────────────────────────────────────── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .card p { color: var(--muted); }
+    .card p strong { color: var(--text); }
+
+    /* ── Objectives ──────────────────────────────── */
+    .objectives { display: flex; flex-direction: column; gap: 16px; }
+    .obj-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+    }
+    .obj-num {
+      background: var(--primary);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .obj-body strong { display: block; font-size: 14px; color: var(--primary); margin-bottom: 3px; }
+    .obj-body p { font-size: 13.5px; color: var(--muted); }
+
+    /* ── Deliverables ────────────────────────────── */
+    .deliverables { display: grid; gap: 18px; }
+    .del-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+    }
+    .del-label {
+      background: var(--primary);
+      color: #fff;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .del-label .del-icon { font-size: 28px; }
+    .del-label .del-name { font-size: 12px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+    .del-body {
+      padding: 16px 20px;
+      background: #fff;
+    }
+    .del-body p { font-size: 13.5px; color: var(--muted); margin-bottom: 8px; }
+    .del-body p:last-child { margin-bottom: 0; }
+    .del-body strong { color: var(--text); }
+    .del-note {
+      display: inline-block;
+      background: #fff8e1;
+      border: 1px solid #f5d76e;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: #7a5e00;
+      margin-top: 6px;
+    }
+
+    /* ── Evaluation Grid ─────────────────────────── */
+    .eval-grid { display: grid; gap: 14px; }
+    .eval-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 70px;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .eval-criterion {
+      background: var(--primary);
+      color: #fff;
+      padding: 14px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+    }
+    .eval-desc {
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--muted);
+      background: #fff;
+      border-left: 1px solid var(--border);
+    }
+    .eval-desc .tip {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--green);
+      font-style: italic;
+    }
+    .eval-weight {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-left: 1px solid var(--border);
+    }
+
+    /* ── AI Tools Reference ──────────────────────── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .tool-card {
+      border: 1px solid var(--tag-ai-border);
+      background: var(--tag-ai);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .tool-card .tool-name { font-weight: 700; font-size: 13.5px; color: var(--primary); margin-bottom: 4px; }
+    .tool-card .tool-use { font-size: 12px; color: var(--muted); }
+    .tool-card .tool-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .tag-blue   { background: #dbeafe; color: #1e40af; }
+    .tag-green  { background: #dcfce7; color: #166534; }
+    .tag-purple { background: #ede9fe; color: #5b21b6; }
+    .tag-orange { background: #ffedd5; color: #9a3412; }
+
+    /* ── Gamification Reference ──────────────────── */
+    .gami-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 12px;
+    }
+    .gami-card {
+      border: 1px solid var(--tag-game-border);
+      background: var(--tag-game);
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+    .gami-card .gami-icon { font-size: 26px; margin-bottom: 6px; }
+    .gami-card .gami-name { font-weight: 700; font-size: 13px; color: var(--primary); margin-bottom: 4px; }
+    .gami-card .gami-desc { font-size: 12px; color: var(--muted); }
+
+    /* ── Bloom's Taxonomy ────────────────────────── */
+    .bloom-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+    }
+    .bloom-level {
+      border-radius: 8px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+    .bloom-level .bloom-num  { font-size: 11px; font-weight: 700; opacity: .7; }
+    .bloom-level .bloom-name { font-size: 13px; font-weight: 800; margin: 4px 0; }
+    .bloom-level .bloom-verbs { font-size: 10.5px; line-height: 1.5; }
+    .b1 { background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
+    .b2 { background: #e3f2fd; color: #0d47a1; border: 1px solid #90caf9; }
+    .b3 { background: #fff8e1; color: #7a5e00; border: 1px solid #ffe082; }
+    .b4 { background: #fce4ec; color: #880e4f; border: 1px solid #f48fb1; }
+    .b5 { background: #ede7f6; color: #4a148c; border: 1px solid #ce93d8; }
+    .b6 { background: #fbe9e7; color: #bf360c; border: 1px solid #ffab91; }
+
+    /* ── Checklist ───────────────────────────────── */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 13.5px;
+    }
+    .checklist li .check {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .checklist li.critical { border-color: #f59e0b; background: #fffbeb; }
+    .checklist li.critical .check { border-color: #f59e0b; }
+
+    /* ── Alert box ───────────────────────────────── */
+    .alert {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #fff3cd;
+      border: 1px solid #f5c400;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 20px;
+      font-size: 13.5px;
+    }
+    .alert-icon { font-size: 20px; flex-shrink: 0; }
+
+    /* ── Timeline ────────────────────────────────── */
+    .timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 40px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 12px;
+      bottom: 12px;
+      width: 2px;
+      background: var(--border);
+    }
+    .tl-item { position: relative; padding: 0 0 22px 20px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -32px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      background: var(--accent);
+      border: 3px solid var(--primary);
+      border-radius: 50%;
+    }
+    .tl-label { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; }
+    .tl-title { font-weight: 700; font-size: 14px; color: var(--primary); margin: 2px 0; }
+    .tl-desc { font-size: 13px; color: var(--muted); }
+
+    /* ── Peer Review ─────────────────────────────── */
+    .peer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .peer-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .peer-header {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .peer-body { padding: 14px 16px; }
+    .peer-body ol { padding-left: 18px; }
+    .peer-body ol li { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+
+    /* ── Footer ──────────────────────────────────── */
+    footer {
+      background: var(--primary);
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 18px 24px;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+    footer span { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+    @media (max-width: 640px) {
+      .del-card  { grid-template-columns: 1fr; }
+      .del-label { flex-direction: row; padding: 12px 16px; }
+      .eval-row  { grid-template-columns: 1fr; }
+      .eval-weight { padding: 8px; font-size: 14px; }
+      .header-main h1 { font-size: 1.4rem; }
+      .bloom-grid { grid-template-columns: repeat(3,1fr); }
+      .peer-grid  { grid-template-columns: 1fr; }
+    }
+
+    /* ── Student info strip ──────────────────────── */
+    .student-strip {
+      background: rgba(0,0,0,0.25);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .student-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .s-field {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12.5px;
+    }
+    .s-label {
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .s-value {
+      color: #fff;
+      font-weight: 600;
+    }
+    .s-sep {
+      color: rgba(255,255,255,0.2);
+      font-size: 16px;
+    }
+    .project-strip {
+      background: var(--accent);
+      padding: 10px 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .project-strip .proj-label {
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      white-space: nowrap;
+    }
+    .project-strip .proj-title {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13.5px;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { padding: 20px; }
+      header { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ HEADER ══════════════════ -->
+<header>
+  <div class="header-top">
+    <div class="header-logos">
+      <div class="logo-box">AUF<br><span style="font-weight:400;font-size:10px">Agence Universitaire<br>de la Francophonie</span></div>
+      <div class="logo-box">UL<br><span style="font-weight:400;font-size:10px">Université<br>Libanaise</span></div>
+    </div>
+    <div class="header-badge">Licence / Master Level</div>
+  </div>
+  <!-- Student identity strip -->
+  <div class="student-strip">
+    <div class="student-info">
+      <div class="s-field">
+        <span class="s-label">Participant</span>
+        <span class="s-value">Mohamad Aoude</span>
+      </div>
+      <span class="s-sep">|</span>
+      <div class="s-field">
+        <span class="s-label">Institution</span>
+        <span class="s-value">Lebanese University — Université Libanaise</span>
+      </div>
+      <span class="s-sep">|</span>
+      <div class="s-field">
+        <span class="s-label">Email</span>
+        <span class="s-value">maoude@ul.edu.lb</span>
+      </div>
+    </div>
+    <div class="s-field">
+      <span class="s-label">Instructor</span>
+      <span class="s-value">Dr. Carine Kassis</span>
+    </div>
+    <span class="s-sep">|</span>
+    <div class="s-field">
+      <span class="s-label">Workshop</span>
+      <span class="s-value">AUF — AI Integration in Higher Education</span>
+    </div>
+  </div>
+
+  <!-- Project title strip -->
+  <div class="project-strip">
+    <span class="proj-label">Project:</span>
+    <span class="proj-title">From Plan to Control: Managing a Project Like a Real PMO</span>
+  </div>
+
+  <div class="header-main">
+    <h1>Final Project: <span>Gamified AI-Assisted</span><br>Pedagogical Module</h1>
+    <div class="header-sub">AI Integration in Higher Education — AUF Workshop</div>
+    <div class="header-pills">
+      <span class="pill">🎓 University Course Design</span>
+      <span class="pill">🤖 Multiple AI Tools</span>
+      <span class="pill">🎮 Gamification Mechanics</span>
+      <span class="pill">📐 Learning Designer</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════ MAIN PAGE ══════════════════ -->
+<div class="page">
+
+  <!-- THE TASK -->
+  <div class="section-title"><span class="icon">📌</span> The Task</div>
+  <div class="card">
+    <p>Design and gamify a <strong>university disciplinary course module</strong> that integrates
+    <strong>multiple AI tools</strong> and <strong>diverse learning types</strong> to strengthen
+    student engagement, autonomy, and learning.</p>
+    <p style="margin-top:10px">The module must be <strong>realistic</strong>, <strong>pedagogically coherent</strong>,
+    and <strong>directly transferable to a real classroom</strong>. You are expected to go beyond simply
+    adding AI as a gimmick — every tool and mechanic must serve a clear pedagogical purpose.</p>
+  </div>
+
+  <!-- PROJECT OBJECTIVES -->
+  <div class="section-title"><span class="icon">🎯</span> Project Objectives</div>
+  <div class="card">
+    <div class="objectives">
+      <div class="obj-item">
+        <div class="obj-num">1</div>
+        <div class="obj-body">
+          <strong>Analyze &amp; Define</strong>
+          <p>Analyze your course and formulate <strong>clear, measurable learning objectives</strong> aligned with the module content. Use Bloom's Taxonomy to guide verb choice (understand, apply, evaluate, create…).</p>
+        </div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">2</div>
+        <div class="obj-body">
+          <strong>Design the Scenario</strong>
+          <p>Conceive a complete pedagogical scenario integrating <strong>gamification mechanics</strong> (levels, quests, progression, feedback, rewards) and multiple AI tools. Ensure mechanics reinforce — not distract from — the learning goals.</p>
+        </div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">3</div>
+        <div class="obj-body">
+          <strong>Build the Module</strong>
+          <p>Develop a <strong>functional prototype</strong> using your chosen AI tools — ready for classroom use, covering varied learning types (knowledge, comprehension, application, creation…).</p>
+        </div>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">4</div>
+        <div class="obj-body">
+          <strong>Present &amp; Iterate</strong>
+          <p>Present the project to peers, gather structured feedback, and refine accordingly. Be prepared to justify every pedagogical and design choice.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPECTED DELIVERABLES -->
+  <div class="section-title"><span class="icon">📦</span> Expected Deliverables</div>
+  <div class="card">
+    <div class="deliverables">
+
+      <div class="del-card">
+        <div class="del-label">
+          <div class="del-icon">🗂️</div>
+          <div class="del-name">Learning Designer Export</div>
+        </div>
+        <div class="del-body">
+          <p>A file exported from the <strong>Learning Designer</strong> tool, released under an open license
+          (<strong>CC-BY-NC recommended</strong>).</p>
+          <p>Must include <strong>at least 2–3 different AI tools</strong> and <strong>varied learning activity types</strong>:
+          acquisition, inquiry, practice, production, collaboration, discussion.</p>
+          <span class="del-note">⚠️ Open license required — no proprietary/closed exports</span>
+        </div>
+      </div>
+
+      <div class="del-card">
+        <div class="del-label">
+          <div class="del-icon">🎥</div>
+          <div class="del-name">Explanatory Video</div>
+        </div>
+        <div class="del-body">
+          <p>A <strong>screen-recorded video (5–10 minutes)</strong> in which you explain what you designed,
+          walk through the pedagogical choices you made, and demonstrate how the module looks and works.</p>
+          <p>Show: <strong>AI tools in action</strong>, gamification mechanics, and student-facing activities live on screen.</p>
+          <span class="del-note">📢 Must be publicly accessible — no login required</span>
+        </div>
+      </div>
+
+      <div class="del-card">
+        <div class="del-label">
+          <div class="del-icon">🔗</div>
+          <div class="del-name">Learning Designer Link</div>
+        </div>
+        <div class="del-body">
+          <p>A <strong>publicly accessible link</strong> to your Learning Designer module — open and viewable
+          by everyone, with no login required.</p>
+          <p>Test the link in an incognito/private browser window before submitting to confirm public access.</p>
+          <span class="del-note">✅ Test in private/incognito mode before submitting</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="alert">
+      <span class="alert-icon">🔓</span>
+      <div><strong>All links and videos must be publicly accessible (no login required).</strong>
+      Submissions requiring a password, institutional login, or invitation will not be evaluated.</div>
+    </div>
+  </div>
+
+  <!-- EVALUATION GRID -->
+  <div class="section-title"><span class="icon">📊</span> Evaluation Grid</div>
+  <div class="card">
+    <div class="eval-grid">
+
+      <div class="eval-row">
+        <div class="eval-criterion">Pedagogical Relevance</div>
+        <div class="eval-desc">
+          Objectives are clear, measurable, and address a genuine course need. Activities are logically structured.
+          <span class="tip">💡 Use action verbs from Bloom's Taxonomy. Each activity should trace back to a stated objective.</span>
+        </div>
+        <div class="eval-weight">20%</div>
+      </div>
+
+      <div class="eval-row">
+        <div class="eval-criterion">AI &amp; Gamification Integration</div>
+        <div class="eval-desc">
+          Multiple AI tools used purposefully (≥2–3 tools). Gamification mechanics (levels, quests, badges, feedback…) meaningfully integrated and supporting learning objectives.
+          <span class="tip">💡 Each AI tool should serve a distinct role. Gamification must be pedagogically justified, not decorative.</span>
+        </div>
+        <div class="eval-weight">30%</div>
+      </div>
+
+      <div class="eval-row">
+        <div class="eval-criterion">Learning Variety</div>
+        <div class="eval-desc">
+          Module covers diverse learning types: knowledge acquisition, practice/quiz, creation, collaboration, reflection. Addresses different learner profiles.
+          <span class="tip">💡 Aim for at least 4 different activity types. Include both individual and collaborative tasks.</span>
+        </div>
+        <div class="eval-weight">20%</div>
+      </div>
+
+      <div class="eval-row">
+        <div class="eval-criterion">Scenario Quality</div>
+        <div class="eval-desc">
+          The pedagogical scenario is clear, progressive, and well-aligned. Activities build toward the stated outcomes.
+          <span class="tip">💡 Activities should escalate in complexity. A student should feel clear progression through the module.</span>
+        </div>
+        <div class="eval-weight">15%</div>
+      </div>
+
+      <div class="eval-row">
+        <div class="eval-criterion">Feasibility &amp; Presentation</div>
+        <div class="eval-desc">
+          The module is classroom-ready. The explanatory video clearly communicates design choices and demonstrates tools in use.
+          <span class="tip">💡 Could a substitute teacher run your module without extra guidance? That's the feasibility bar.</span>
+        </div>
+        <div class="eval-weight">15%</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BLOOM'S TAXONOMY -->
+  <div class="section-title"><span class="icon">🧠</span> Bloom's Taxonomy — Writing Measurable Objectives</div>
+  <div class="card">
+    <p style="margin-bottom:16px;font-size:13px">Every learning objective must use a <strong>measurable action verb</strong>.
+    Pick verbs from the appropriate cognitive level for your module's goals.</p>
+    <div class="bloom-grid">
+      <div class="bloom-level b1">
+        <div class="bloom-num">Level 1</div>
+        <div class="bloom-name">Remember</div>
+        <div class="bloom-verbs">list · recall · name · identify · define · recognize</div>
+      </div>
+      <div class="bloom-level b2">
+        <div class="bloom-num">Level 2</div>
+        <div class="bloom-name">Understand</div>
+        <div class="bloom-verbs">explain · summarize · describe · classify · interpret · paraphrase</div>
+      </div>
+      <div class="bloom-level b3">
+        <div class="bloom-num">Level 3</div>
+        <div class="bloom-name">Apply</div>
+        <div class="bloom-verbs">use · solve · demonstrate · calculate · execute · implement</div>
+      </div>
+      <div class="bloom-level b4">
+        <div class="bloom-num">Level 4</div>
+        <div class="bloom-name">Analyze</div>
+        <div class="bloom-verbs">compare · differentiate · examine · break down · critique · distinguish</div>
+      </div>
+      <div class="bloom-level b5">
+        <div class="bloom-num">Level 5</div>
+        <div class="bloom-name">Evaluate</div>
+        <div class="bloom-verbs">assess · judge · justify · argue · defend · prioritize</div>
+      </div>
+      <div class="bloom-level b6">
+        <div class="bloom-num">Level 6</div>
+        <div class="bloom-name">Create</div>
+        <div class="bloom-verbs">design · build · produce · develop · formulate · construct</div>
+      </div>
+    </div>
+    <div class="alert" style="margin-top:16px">
+      <span class="alert-icon">✏️</span>
+      <div><strong>Objective formula:</strong> <em>"By the end of this module, students will be able to [verb from Bloom's] + [content] + [condition or standard]."</em>
+      Example: <em>"Students will be able to <strong>design</strong> a project risk matrix using an AI brainstorming tool, covering at least 5 identified risks."</em></div>
+    </div>
+  </div>
+
+  <!-- AI TOOLS REFERENCE -->
+  <div class="section-title"><span class="icon">🤖</span> AI Tools — Reference &amp; Inspiration</div>
+  <div class="card">
+    <p style="margin-bottom:16px;font-size:13px">You must integrate <strong>at least 2–3 distinct AI tools</strong>.
+    Choose tools that genuinely serve different pedagogical roles — not the same function duplicated.</p>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-name">ChatGPT / Claude</div>
+        <div class="tool-use">Text generation, Q&amp;A tutoring, scenario writing, feedback on student drafts</div>
+        <div class="tool-tags"><span class="tag tag-blue">Text</span><span class="tag tag-green">Tutoring</span></div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Copilot in M365</div>
+        <div class="tool-use">Document drafting, summarization, idea generation within familiar Office tools</div>
+        <div class="tool-tags"><span class="tag tag-blue">Text</span><span class="tag tag-purple">Office</span></div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Canva AI / MagicWrite</div>
+        <div class="tool-use">Visual design, slide creation, infographic generation</div>
+        <div class="tool-tags"><span class="tag tag-orange">Visual</span><span class="tag tag-green">Design</span></div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Quizlet / Kahoot AI</div>
+        <div class="tool-use">AI-generated quiz sets, spaced repetition, formative assessment</div>
+        <div class="tool-tags"><span class="tag tag-green">Quiz</span><span class="tag tag-blue">Practice</span></div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Eduaide.ai / Diffit</div>
+        <div class="tool-use">Lesson plan generation, differentiated reading materials, rubric creation</div>
+        <div class="tool-tags"><span class="tag tag-purple">Planning</span><span class="tag tag-green">Scaffold</span></div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Speechify / Murf</div>
+        <div class="tool-use">Text-to-speech for accessibility, podcast-style content delivery</div>
+        <div class="tool-tags"><span class="tag tag-orange">Audio</span><span class="tag tag-blue">Access</span></div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Notion AI / Gamma</div>
+        <div class="tool-use">Structured note-taking, AI-generated presentations, collaborative docs</div>
+        <div class="tool-tags"><span class="tag tag-purple">Collab</span><span class="tag tag-blue">Text</span></div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">DALL-E / Ideogram</div>
+        <div class="tool-use">Image generation for visual learners, creative production tasks</div>
+        <div class="tool-tags"><span class="tag tag-orange">Image</span><span class="tag tag-green">Creative</span></div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">Mindsmith / Articulate AI</div>
+        <div class="tool-use">AI-powered eLearning module authoring with branching scenarios</div>
+        <div class="tool-tags"><span class="tag tag-purple">eLearning</span><span class="tag tag-blue">Build</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAMIFICATION MECHANICS REFERENCE -->
+  <div class="section-title"><span class="icon">🎮</span> Gamification Mechanics — Reference</div>
+  <div class="card">
+    <p style="margin-bottom:16px;font-size:13px">Choose mechanics that <strong>reinforce learning behaviors</strong> —
+    exploration, persistence, reflection — not just reward completion. Each mechanic must map to a learning goal.</p>
+    <div class="gami-grid">
+      <div class="gami-card">
+        <div class="gami-icon">🗺️</div>
+        <div class="gami-name">Quests / Missions</div>
+        <div class="gami-desc">Structured challenges with clear goals and deliverables at each stage</div>
+      </div>
+      <div class="gami-card">
+        <div class="gami-icon">⬆️</div>
+        <div class="gami-name">Levels / Progression</div>
+        <div class="gami-desc">Scaffold complexity — unlock higher content by mastering the basics first</div>
+      </div>
+      <div class="gami-card">
+        <div class="gami-icon">🏅</div>
+        <div class="gami-name">Badges / Achievements</div>
+        <div class="gami-desc">Recognize specific skills or behaviors beyond grades and marks</div>
+      </div>
+      <div class="gami-card">
+        <div class="gami-icon">⏱️</div>
+        <div class="gami-name">Time Challenges</div>
+        <div class="gami-desc">Timed tasks to build fluency, retrieval practice, and quick decision-making</div>
+      </div>
+      <div class="gami-card">
+        <div class="gami-icon">💬</div>
+        <div class="gami-name">Instant Feedback</div>
+        <div class="gami-desc">Immediate, specific feedback after each activity — AI can personalize this</div>
+      </div>
+      <div class="gami-card">
+        <div class="gami-icon">🏆</div>
+        <div class="gami-name">Leaderboard</div>
+        <div class="gami-desc">Optional — use carefully; can demotivate lower performers if poorly designed</div>
+      </div>
+      <div class="gami-card">
+        <div class="gami-icon">🎲</div>
+        <div class="gami-name">Random Events</div>
+        <div class="gami-desc">Surprise bonuses or challenge twists to maintain curiosity and engagement</div>
+      </div>
+      <div class="gami-card">
+        <div class="gami-icon">🤝</div>
+        <div class="gami-name">Team Roles</div>
+        <div class="gami-desc">Assign interdependent roles to drive collaboration and shared accountability</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUGGESTED TIMELINE -->
+  <div class="section-title"><span class="icon">📅</span> Suggested Work Timeline</div>
+  <div class="card">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Phase 1</div>
+        <div class="tl-title">Analysis &amp; Objective Setting</div>
+        <div class="tl-desc">Select your course/module. Write 3–5 measurable learning objectives using Bloom's action verbs. Identify the learner profile and context constraints (time, tech access, class size).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Phase 2</div>
+        <div class="tl-title">Scenario &amp; Gamification Design</div>
+        <div class="tl-desc">Draft the full pedagogical scenario. Map activities to objectives. Choose and justify gamification mechanics. Select AI tools and define their specific pedagogical roles.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Phase 3</div>
+        <div class="tl-title">Build in Learning Designer</div>
+        <div class="tl-desc">Create the module in Learning Designer. Ensure activity variety (at least 4 types). Test each AI tool integration. Export and publish with a public link — test in incognito mode.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Phase 4</div>
+        <div class="tl-title">Record the Explanatory Video</div>
+        <div class="tl-desc">Record a 5–10 min screen-captured walkthrough. Narrate your design rationale. Show AI tools and gamification mechanics live. Upload to a public platform (YouTube, Google Drive).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Phase 5</div>
+        <div class="tl-title">Present, Peer Review &amp; Refine</div>
+        <div class="tl-desc">Present to peers. Collect structured feedback using the peer review guide below. Revise the module and video if needed. Confirm all three deliverables have public links before final submission.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEER REVIEW GUIDE -->
+  <div class="section-title"><span class="icon">🔍</span> Peer Review Guide</div>
+  <div class="card">
+    <p style="margin-bottom:16px;font-size:13px">Use these structured questions when reviewing a peer's module. Give specific, constructive feedback — not just ratings.</p>
+    <div class="peer-grid">
+      <div class="peer-card">
+        <div class="peer-header">As a Learner — Could you follow this module?</div>
+        <div class="peer-body">
+          <ol>
+            <li>Are the objectives clear enough to know what you'll be able to do by the end?</li>
+            <li>Does each activity feel purposeful, or does any feel like filler?</li>
+            <li>Is the difficulty progression logical — does it build on what came before?</li>
+            <li>Do the gamification elements motivate you, or do they feel disconnected?</li>
+            <li>Is anything confusing, missing, or assumed without explanation?</li>
+          </ol>
+        </div>
+      </div>
+      <div class="peer-card">
+        <div class="peer-header">As an Instructor — Could you deliver this module?</div>
+        <div class="peer-body">
+          <ol>
+            <li>Are the AI tools clearly explained — could another instructor use them?</li>
+            <li>Is the time estimate realistic for each activity?</li>
+            <li>Are the gamification mechanics manageable in a real classroom?</li>
+            <li>Does the module address different learner profiles and needs?</li>
+            <li>What is the single most important improvement you would suggest?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMISSION CHECKLIST -->
+  <div class="section-title"><span class="icon">✅</span> Pre-Submission Checklist</div>
+  <div class="card">
+    <ul class="checklist">
+      <li class="critical"><div class="check"></div><div>Learning Designer module exported and published under CC-BY-NC (or equivalent open license)</div></li>
+      <li class="critical"><div class="check"></div><div>Public Learning Designer link tested in incognito/private browser — no login required</div></li>
+      <li class="critical"><div class="check"></div><div>Explanatory video is 5–10 minutes, publicly accessible (YouTube unlisted, Google Drive public share, etc.)</div></li>
+      <li><div class="check"></div><div>Module includes at least 2–3 clearly distinct AI tools, each with a defined pedagogical role</div></li>
+      <li><div class="check"></div><div>At least 4 different learning activity types are present (acquisition, practice, creation, collaboration…)</div></li>
+      <li><div class="check"></div><div>All learning objectives use measurable Bloom's action verbs</div></li>
+      <li><div class="check"></div><div>Gamification mechanics are justified in the video — not just cosmetic additions</div></li>
+      <li><div class="check"></div><div>Activities build progressively in complexity toward the stated outcomes</div></li>
+      <li><div class="check"></div><div>The module could be run by another instructor without additional guidance</div></li>
+      <li><div class="check"></div><div>The video narrates design rationale, not just a screen tour</div></li>
+      <li><div class="check"></div><div>Peer feedback has been collected and at least one revision has been made based on it</div></li>
+    </ul>
+  </div>
+
+</div><!-- /page -->
+
+<footer>
+  <span>AI Integration in Higher Education</span> &nbsp;·&nbsp;
+  AUF — Soutien à l'intégration de l'IA dans l'enseignement supérieur au Moyen-Orient &nbsp;·&nbsp;
+  <span>CC-BY-NC</span>
+</footer>
+
+</body>
+</html>

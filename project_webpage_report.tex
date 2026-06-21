@@ -1,0 +1,267 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\definecolor{pmoteal}{HTML}{2F6F73}
+\definecolor{pmoamber}{HTML}{D99A2B}
+\definecolor{pmogray}{HTML}{405059}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=pmoteal,
+  urlcolor=pmoteal
+}
+
+\setlist[itemize]{leftmargin=1.4em}
+\setlist[enumerate]{leftmargin=1.6em}
+\renewcommand{\arraystretch}{1.25}
+
+\title{\textbf{Project and Web Page Report}\\AI-Assisted Gamified PMO Teaching Module\\\large Project for the Course ``AI in Teaching''}
+\author{Student: Mohamad Aoude\\Project Title: From Plan to Control: Managing a Project Like a Real PMO}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{1. Project Overview}
+
+This report presents the final project prepared by \textbf{Mohamad Aoude} for the course \textbf{AI in Teaching}. The purpose of the course is to study how artificial intelligence can be integrated into teaching in a pedagogically meaningful way. For this reason, the project does not only present a topic; it designs a complete AI-assisted learning experience with objectives, activities, gamification, assessment, reusable materials, and a supporting web page.
+
+The project is a complete AI-assisted and gamified pedagogical module for teaching project management. Its title is \textbf{From Plan to Control: Managing a Project Like a Real PMO}. The module places students in the role of a project management office team responsible for delivering a Smart Campus Mobile App under realistic constraints.
+
+The project is designed for Licence or Master level students in engineering, computer science, business, management, or related disciplines. It can be delivered as one three-hour immersive session or as two ninety-minute sessions. The learning experience is not limited to a lecture. Students analyze a scenario, build planning artefacts, read dashboard indicators, make decisions under pressure, and present a recovery briefing.
+
+In relation to the \textbf{AI in Teaching} course, the project demonstrates how AI tools can support instructional design, content production, learner interaction, feedback, assessment, and classroom engagement while the instructor remains responsible for the final pedagogical judgment.
+
+\section*{2. Pedagogical Purpose}
+
+The main pedagogical goal is to help students move from theoretical project management vocabulary to applied project control. Students learn how a project manager defines scope, builds a Work Breakdown Structure, organizes a schedule, tracks progress, interprets project indicators, and reacts to risks.
+
+By the end of the module, students should be able to:
+
+\begin{enumerate}
+  \item Explain the project management cycle: initiation, planning, execution, monitoring, control, and closing.
+  \item Build a deliverable-oriented Work Breakdown Structure for a realistic project.
+  \item Convert deliverables into tasks, dependencies, milestones, and responsibilities.
+  \item Interpret basic project dashboard data such as progress, cost, bugs, and completed modules.
+  \item Diagnose schedule, cost, quality, and integration risks.
+  \item Propose corrective actions when a project is late, over budget, or technically unstable.
+  \item Communicate project status through a professional PMO-style briefing.
+\end{enumerate}
+
+\section*{3. Project Scenario}
+
+The central case is a university Smart Campus Mobile App. The app must be delivered in twelve weeks with a limited budget and a small team. The app includes student login, course schedule, exam calendar, notifications, room reservation, complaint/request management, an admin dashboard, and a pilot deployment.
+
+\begin{tabular}{>{\bfseries}p{4cm}p{10.5cm}}
+Budget & 40,000 USD \\
+Deadline & 12 weeks \\
+Demo requirement & First demo by week 6 \\
+Main risk & Integration delay with the university database \\
+Team & 1 project manager, 2 backend developers, 2 mobile developers, 1 UI/UX designer, and 1 QA tester \\
+\end{tabular}
+
+\section*{4. Gamification Design}
+
+The module uses a five-level quest structure. Each level represents a phase of project management and produces a visible student output. Students advance through the project by completing missions, earning badges, answering questions, and solving problems.
+
+\begin{longtable}{>{\bfseries}p{1.8cm}p{3.3cm}p{5.2cm}p{3.3cm}}
+\textbf{Level} & \textbf{Name} & \textbf{Mission} & \textbf{Evidence / Badge} \\
+\hline
+1 & Project Launch & Define scope, stakeholders, constraints, and success criteria. & Project charter / Scope Master \\
+2 & WBS Builder & Build a deliverable-oriented WBS for the Smart Campus App. & WBS tree / WBS Architect \\
+3 & Schedule Rescue & Reduce the initial fifteen-week plan into a realistic twelve-week plan. & Optimized schedule / Schedule Optimizer \\
+4 & Dashboard Detective & Analyze week 6 performance data and diagnose project health. & KPI interpretation / Dashboard Detective \\
+5 & Crisis Controller & Respond to the week 8 integration failure and prepare a recovery briefing. & PMO briefing / Crisis Controller \\
+\end{longtable}
+
+The gamification elements include levels, quests, badges, scores, instant feedback, decision points, a dashboard game, and a final recovery challenge. These mechanics are linked directly to the learning outcomes instead of being decorative.
+
+\section*{5. AI Tool Integration}
+
+The module integrates multiple AI and digital tools, each with a specific instructional role.
+
+\begin{longtable}{>{\bfseries}p{4cm}p{4cm}p{6.2cm}}
+\textbf{Purpose} & \textbf{Tool} & \textbf{Role in the Module} \\
+\hline
+Scenario and content drafting & ChatGPT / Claude / Gemini & Drafts learning objectives, PMO scenarios, crisis cards, quiz questions, and explanatory text. \\
+Grounded course support & NotebookLM & Helps summarize uploaded project management notes and support inquiry-based student work. \\
+Module structure & Learning Designer & Organizes the learning sequence, activity types, and exportable pedagogical design. \\
+Interactive simulation & Genially & Presents branching decisions and the week 8 crisis scenario. \\
+Formative quiz & Quizizz / QuestionWell & Provides checkpoint questions, instant feedback, and review explanations. \\
+Dashboard practice & Google Sheets / Excel & Allows students to manipulate project data and interpret progress, cost, and quality indicators. \\
+Visual production & Gamma / Canva & Supports slides, badges, certificates, and the explanatory video. \\
+\end{longtable}
+
+The required use of at least three AI-supported tools is therefore satisfied. The project uses more than three tools, but each is assigned to a concrete learning purpose.
+
+\section*{6. Description of the Web Page}
+
+The web page is a React and Vite application. It functions as a public dashboard for the course materials, the final project, and the PMO teaching module. The page is organized with a persistent sidebar and clear sections for sessions, resources, the final project, the PMO module, slides, games, runbook, production assets, assessment, and video.
+
+\begin{longtable}{>{\bfseries}p{4cm}p{10.5cm}}
+\textbf{Web Page Section} & \textbf{Function} \\
+\hline
+Hero & Introduces the AUF workshop, the AI in Teaching theme, the level, the language, and the CC-BY-NC license. \\
+Course Sessions & Provides four downloadable session slide files about AI in Education and AI in Teaching. \\
+Course Resources & Provides the AI tools kit, final project brief, PMO syllabus, and dashboard CSV file. \\
+Final Project & Summarizes the assignment objective, deliverables, license, and rubric weights. \\
+PMO Module & Presents the Smart Campus App case, constraints, quests, badges, and expected outputs. \\
+Slide Player & Provides an embedded ten-slide PMO lecture sequence with next/previous controls. \\
+PMO Quest Games & Includes two interactive student games: PMO Decision Quest and Dashboard Detective. \\
+Runbook & Displays the 180-minute classroom plan with time, activity, learning type, and tool. \\
+Production Assets & Links to lecture scripts, game pack, quiz bank, activity cards, Genially storyboard, and video scripts. \\
+Assessment & Shows the rubric alignment and an interactive quiz with scoring and corrective feedback. \\
+Video & Presents the explanatory video structure from introduction to pedagogical justification. \\
+\end{longtable}
+
+\section*{7. Technical Description of the Web Page}
+
+The web page is implemented in \texttt{src/main.jsx} and styled in \texttt{src/styles.css}. It uses React state to manage the interactive slide player, quiz answers, quest answers, dashboard game answers, scores, feedback messages, and earned badges.
+
+The application uses the following main technical choices:
+
+\begin{itemize}
+  \item \textbf{React}: builds the interactive user interface and updates quiz/game state dynamically.
+  \item \textbf{Vite}: provides fast local development and static production builds.
+  \item \textbf{lucide-react}: supplies consistent icons for sessions, downloads, dashboards, games, assessment, and video.
+  \item \textbf{Static public assets}: stores PDF files, CSV templates, markdown materials, quiz files, scripts, and the syllabus under the \texttt{public} directory.
+  \item \textbf{Responsive CSS}: adapts the sidebar, grids, hero, games, slide player, tables, and cards to desktop and mobile screens.
+\end{itemize}
+
+The web page can be run locally with \texttt{npm run dev} and built for deployment with \texttt{npm run build}.
+
+\section*{8. How the Web Page Supports the Project}
+
+The web page is not only a presentation page. It works as a delivery hub for the whole pedagogical module. It gives instructors direct access to the runbook, lecture scripts, slides, game pack, quiz bank, activity cards, and explanatory video script. It gives students a clear entry point into the scenario, quests, dashboard data, and quiz practice.
+
+The interactive elements also demonstrate the learning design:
+
+\begin{itemize}
+  \item The slide player shows the lecture sequence.
+  \item The PMO Decision Quest simulates project management decisions and awards badges.
+  \item The Dashboard Detective game asks students to interpret week 6 project data.
+  \item The live quiz provides immediate feedback and a visible score.
+  \item The downloadable assets make the module reusable in class, in Learning Designer, or in another teaching platform.
+\end{itemize}
+
+\section*{9. Compliance with the Final Project Requirements}
+
+\begin{longtable}{>{\bfseries}p{4.3cm}p{2cm}p{8cm}}
+\textbf{Requirement / Criterion} & \textbf{Weight} & \textbf{How the Project Complies} \\
+\hline
+Pedagogical relevance & 20\% & The module defines clear learning objectives and follows a logical sequence from project initiation to planning, execution control, crisis response, and reporting. \\
+AI and gamification integration & 30\% & The module uses AI-supported tools for design, content grounding, simulation, assessment, and visual production. Gamification is built through five levels, quests, badges, feedback, points, and progression. \\
+Learning variety & 20\% & The runbook includes acquisition, inquiry, practice, production, collaboration, discussion, and reflection activities. Students listen, investigate, calculate, produce artefacts, collaborate, and reflect. \\
+Scenario quality & 15\% & The Smart Campus App scenario is realistic for university students and develops progressively through planning, dashboard diagnosis, and a week 8 crisis. \\
+Feasibility and presentation & 15\% & The module uses accessible free or freemium tools, provides ready-to-use classroom assets, includes a public web page structure, and contains a video script for the final explanation. \\
+\end{longtable}
+
+\section*{10. Required Deliverables and Evidence}
+
+\begin{longtable}{>{\bfseries}p{4.5cm}p{10cm}}
+\textbf{Deliverable} & \textbf{Evidence in the Project} \\
+\hline
+Learning Designer style module & The project includes a structured activity sequence, learning types, objectives, tools, and timing in the runbook and module description. \\
+Explanatory video & The web page includes a video timeline, and the repository includes \texttt{explanatory\_video\_script\_full.md} and \texttt{micro\_video\_scripts.md}. \\
+Public link / online access & The React/Vite web page is designed for static hosting and can be deployed through GitHub Pages or another static hosting service. \\
+Gamified learning experience & The page includes five quests, badges, a decision game, a dashboard game, and a live quiz. \\
+Assessment resources & The repository includes quiz questions, a question bank, a rubric, and instant feedback in the interactive quiz. \\
+Reusable teaching materials & The repository includes lecture scripts, activity cards, game pack, slide script, dashboard CSV, Genially storyboard, and syllabus files. \\
+\end{longtable}
+
+\section*{11. Explicit Mapping to \texttt{Metadata\_Scenario.xlsx}}
+
+The spreadsheet \texttt{Metadata\_Scenario.xlsx} asks for administrative, pedagogical, gamification, AI, deliverable, feasibility, evaluation, and technical metadata. The table below makes the compliance explicit by matching the project to those exact terms.
+
+\begin{longtable}{>{\bfseries}p{4.6cm}p{9.9cm}}
+\textbf{Metadata term} & \textbf{Project value / compliance evidence} \\
+\hline
+Etablissement / University & \textbf{Lebanese University} (Université Libanaise). \\
+Faculte / Faculty & To be completed manually according to the participant's faculty. Suitable for engineering, computer science, business, management, or information systems. \\
+Nom du participant & \textbf{Mohamad Aoude} \quad Email: \textbf{maoude@ul.edu.lb} \\
+Nom du formateur référent & \textbf{Dr.\ Carine Kassis} (Course Instructor, AUF Workshop --- AI Integration in Higher Education). \\
+Domaine & Higher education, digital pedagogy, AI integration in teaching, project management education. \\
+Discipline & Project management, software project management, PMO practice, engineering/business management. \\
+Langue du projet & English. The web page and materials are written in English. \\
+Mots cles & AI-assisted teaching; gamification; project management; PMO; dashboard analysis. \\
+Titre du projet & \textbf{From Plan to Control: Managing a Project Like a Real PMO}. \\
+Option choisie & Gamified AI-assisted pedagogical module with a public web page and reusable teaching assets. \\
+Descriptif du projet & A three-hour AI-assisted gamified module where students act as a PMO team delivering a Smart Campus Mobile App. They define scope, build a WBS, optimize a schedule, analyze dashboard indicators, respond to a crisis, and present a recovery briefing. \\
+Public cible & Licence or Master students in engineering, computer science, business, management, or related disciplines. \\
+Nombre d'apprenants & Recommended for 25--40 learners, organized into small groups of 4--6 students. \\
+Modalite de deploiement & Face-to-face, blended, or online. The web page supports classroom projection, individual exploration, and asynchronous access. \\
+Duree du module & 3 hours, or two sessions of 90 minutes. \\
+Resultats d'apprentissage & 1. Build a deliverable-oriented WBS. 2. Interpret project dashboard indicators. 3. Propose corrective actions and present a PMO recovery briefing. \\
+Problemes pedagogiques a resoudre & The module addresses passive learning, weak transfer from theory to practice, difficulty interpreting project indicators, and limited experience with realistic project control decisions. \\
+Methodes de correction de l'activite finale & Final PMO recovery briefing assessed with a rubric: problem diagnosis, impact analysis, corrective action, sponsor decision, and professional communication. Formative correction is also provided through quizzes and dashboard games. \\
+\end{longtable}
+
+\begin{longtable}{>{\bfseries}p{4.6cm}p{9.9cm}}
+\textbf{Metadata term} & \textbf{Project value / compliance evidence} \\
+\hline
+Mecanismes de gamification utilises & Select three main mechanisms in the spreadsheet: \textbf{Niveaux/etapes}, \textbf{Quetes/missions}, and \textbf{Badges}. The project also includes quiz feedback and score tracking. \\
+Role pedagogique des mecanismes & The mechanisms structure progression, stimulate engagement, guide problem solving, and support autonomy through staged missions. \\
+Feedback attendu & Immediate textual feedback in the quiz and games, badge feedback after quest completion, group feedback during the PMO briefing, and reflective exit-ticket feedback. \\
+Elements de gamification disponibles & Visual badges, textual missions, interactive quiz buttons, dashboard challenge, scores, levels, and web-based feedback. \\
+Outils d'IA generative texte & ChatGPT, Claude, or Gemini for objectives, scenario design, scripts, rubric wording, quiz drafting, and briefing prompts. \\
+Outils d'IA multimedia & Gamma and Canva for slide design, badge/certificate visuals, and explanatory video support. \\
+Outils interactifs enrichis par l'IA & Genially for the branching crisis simulation; Quizizz or QuestionWell for interactive AI-supported quiz generation. \\
+Autres outils IA & NotebookLM for grounded summaries from course notes; Google Sheets or Excel for dashboard simulation and KPI practice. \\
+Nom du fichier & \texttt{Aoude\_UniversitéLibanaise\_KassisCarine} — following the required \texttt{Nom\_Etablissement\_Formateur} convention. \\
+Document Word lien & Evidence exists as \path{Generated_Materials/PMO_AI_Module_Pack.docx}. If the form requires a URL, upload the file and paste the public link. \\
+Lien Learning Designer & To be added after publishing the Learning Designer version. The current project already contains the complete Learning Designer-style activity sequence. \\
+\end{longtable}
+
+\begin{longtable}{>{\bfseries}p{4.6cm}p{9.9cm}}
+\textbf{Metadata term} & \textbf{Project value / compliance evidence} \\
+\hline
+Conditions techniques de mise en oeuvre & Internet connection, projector or screen, student devices, browser access, Google Sheets or Excel access, and basic digital skills for using forms, quizzes, and downloadable files. The React web page runs as a static site. \\
+Indicateurs de reussite & Students complete the WBS, produce an optimized schedule, correctly diagnose the dashboard, improve quiz score, and deliver a structured PMO recovery briefing. \\
+Impact attendu & Increased engagement, stronger practical understanding of project control, better dashboard interpretation, improved group decision-making, and clearer professional communication. \\
+Possibilite d'adaptation & The same design can be adapted to cybersecurity, IoT, AI attendance systems, online exam platforms, entrepreneurship projects, or other management/engineering scenarios. \\
+Methodes d'evaluation & Diagnostic opening poll, formative quizzes, group artefact assessment, dashboard interpretation, final PMO briefing, exit ticket, self-reflection, and optional peer feedback. \\
+Outils d'evaluation & Rubric, live quiz, dashboard game, question bank JSON, Quizizz import CSV, exit ticket, and final briefing checklist. \\
+Type de plateforme & Site web. The module is implemented as a React/Vite web application. \\
+Compatibilite & Compatible with computer, tablet, and phone through responsive CSS. Best classroom experience is on computer or projected screen. \\
+Format du fichier final & HTML5 / web application, plus PDF, DOCX, CSV, Markdown, JSON, and LaTeX supporting files. \\
+Possibilites d'integration & Can be linked from Moodle, Canvas, Microsoft Teams, Google Classroom, Blackboard, or any LMS that accepts external web links or downloadable files. \\
+\end{longtable}
+
+\subsection*{Manual Fields Still Needed Before Final Submission}
+
+The project content itself satisfies the metadata requirements. The remaining items are administrative or publication details:
+
+\begin{itemize}
+  \item Faculty / department name (e.g.\ Faculty of Engineering, Lebanese University).
+  \item Final public URL of the deployed web page.
+  \item Public link to the Word document (\texttt{PMO\_AI\_Module\_Pack.docx}) uploaded to Google Drive or OneDrive.
+  \item Public Learning Designer link after building and publishing the module on \texttt{learningdesigner.org}.
+\end{itemize}
+
+\section*{12. Repository Files Used by the Web Page}
+
+The following files and folders provide evidence of the completed work:
+
+\begin{itemize}
+  \item \texttt{src/main.jsx}: main React application and content structure.
+  \item \texttt{src/styles.css}: visual layout, responsive design, cards, tables, games, and buttons.
+  \item \texttt{public/}: downloadable PDFs, syllabus, dashboard template, and student-facing assets.
+  \item \texttt{public/materials/}: lecture script, game pack, activity cards, quiz import file, question bank, storyboard, and video scripts.
+  \item \texttt{Real\_Materials/}: production-ready source copies of the teaching materials.
+  \item \texttt{AI-Powered.txt}: detailed final project design, tool stack, rubric alignment, and production workflow.
+  \item \texttt{syllabus/pmo\_ai\_lecture\_syllabus.tex}: formal lecture syllabus in LaTeX.
+\end{itemize}
+
+\section*{13. Conclusion}
+
+This project satisfies the requested final project because it combines a coherent pedagogical module, meaningful AI tool integration, a complete gamification structure, diverse learning activities, a realistic project management scenario, and a deployable web page. The web page strengthens the submission because it gathers the module, resources, games, assessment, video plan, and production assets in one accessible interface.
+
+The result is classroom-ready: an instructor can teach from the runbook and slides, students can complete the quests and dashboard activities, evaluators can inspect the rubric alignment, and the whole package can be published as a public static web page.
+
+\end{document}
