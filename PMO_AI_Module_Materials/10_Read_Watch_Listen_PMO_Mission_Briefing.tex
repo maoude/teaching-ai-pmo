@@ -1,0 +1,250 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+
+\definecolor{pmoTeal}{HTML}{2F6F73}
+\definecolor{pmoDark}{HTML}{182126}
+\definecolor{pmoAmber}{HTML}{D99A2B}
+\definecolor{pmoLight}{HTML}{EEF6F5}
+\definecolor{pmoGray}{HTML}{F4F6F7}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=pmoTeal,
+  urlcolor=pmoTeal,
+  pdftitle={PMO Mission Briefing},
+  pdfsubject={Read, Watch, Listen resource for From Plan to Control},
+  pdfauthor={Mohamad Aoude}
+}
+
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\fancyhf{}
+\lhead{From Plan to Control}
+\rhead{PMO Mission Briefing}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\Large\bfseries\color{pmoTeal}}{}{0pt}{}
+\titleformat{\subsection}{\large\bfseries\color{pmoDark}}{}{0pt}{}
+\setlist[itemize]{leftmargin=1.4em,itemsep=2pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=3pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newtcolorbox{missionbox}{
+  colback=pmoLight,
+  colframe=pmoTeal,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=3mm,right=3mm,top=2mm,bottom=2mm
+}
+
+\newtcolorbox{warningbox}{
+  colback=yellow!8,
+  colframe=pmoAmber,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=3mm,right=3mm,top=2mm,bottom=2mm
+}
+
+\begin{document}
+
+\begin{center}
+  {\small\bfseries\color{pmoTeal} READ, WATCH, LISTEN RESOURCE}\par
+  \vspace{3mm}
+  {\Huge\bfseries\color{pmoDark} PMO Mission Briefing}\par
+  \vspace{2mm}
+  {\Large From Plan to Control: Managing a Project Like a Real PMO}\par
+  \vspace{3mm}
+  {\small Recommended study time: 8--10 minutes \quad | \quad Licence/Master level}
+\end{center}
+
+\begin{missionbox}
+\textbf{Your mission.} Your university has appointed your team as its Project Management Office (PMO). You must help deliver a Smart Campus Mobile App under strict time, budget, and quality constraints. Read this briefing before beginning the five project quests.
+\end{missionbox}
+
+\section{1. The Smart Campus Project}
+
+The university wants a mobile application that makes everyday campus services easier for students and staff. The proposed app includes:
+
+\begin{itemize}
+  \item secure student login;
+  \item course schedules and examination calendars;
+  \item notifications and room reservations;
+  \item a complaint and service-request system;
+  \item an administration dashboard; and
+  \item a pilot deployment for selected users.
+\end{itemize}
+
+\begin{center}
+\begin{tabularx}{0.94\textwidth}{>{\bfseries}l X >{\bfseries}l X}
+\toprule
+Deadline & 12 weeks & Budget & USD 40,000 \\
+Demo & End of week 6 & Team & Small multidisciplinary team \\
+Main risk & Database integration & Sponsor priority & A reliable pilot on time \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The sponsor wants visible progress quickly, but speed cannot replace planning, testing, or honest reporting. Your responsibility is to protect the project's value while making trade-offs transparent.
+
+\section{2. What Does a PMO Do?}
+
+A Project Management Office helps a project team plan consistently, monitor evidence, manage risks, and communicate decisions. In this simulation, your PMO team will move through the complete control cycle:
+
+\begin{enumerate}
+  \item \textbf{Initiate:} clarify the need, stakeholders, constraints, and definition of success.
+  \item \textbf{Plan:} organize deliverables, tasks, responsibilities, resources, costs, and risks.
+  \item \textbf{Execute:} coordinate the work needed to produce the agreed deliverables.
+  \item \textbf{Monitor:} compare actual evidence with the approved plan.
+  \item \textbf{Control:} choose and authorize corrective action when performance differs from the plan.
+  \item \textbf{Close:} confirm acceptance, capture lessons, and transfer the final product.
+\end{enumerate}
+
+\begin{warningbox}
+\textbf{Monitoring is not controlling.} Monitoring reveals what is happening. Controlling uses that evidence to decide what should change. A dashboard is useful only when it leads to a justified decision.
+\end{warningbox}
+
+\section{3. Start with Scope and Stakeholders}
+
+Before coding begins, the PM must clarify what the project will deliver and whose needs matter.
+
+\textbf{Scope} defines the agreed product and project boundaries. A clear scope states what is included, what is excluded, and how completion will be accepted.
+
+\textbf{Stakeholders} are people or groups who influence the project or are affected by it. For the Smart Campus App, they may include students, instructors, administrators, IT services, data-protection staff, the sponsor, and the development team.
+
+\textbf{Success criteria} must be measurable. ``Create a good app'' is vague. Better criteria include:
+
+\begin{itemize}
+  \item the pilot is available by the end of week 12;
+  \item all critical login and schedule functions pass acceptance testing;
+  \item no unresolved critical security defects remain before the pilot; and
+  \item pilot users can complete defined tasks within an agreed response time.
+\end{itemize}
+
+\section{4. Build a Deliverable-Oriented WBS}
+
+A Work Breakdown Structure (WBS) divides the complete project scope into manageable deliverables. It answers, ``What must the project produce?'' before the schedule answers, ``Who will do the work, and when?''
+
+\begin{center}
+\begin{tabularx}{0.94\textwidth}{>{\bfseries}l X X}
+\toprule
+Level & Example & Purpose \\
+\midrule
+1 & Smart Campus Mobile App & Complete project \\
+2 & Requirements; design; development; testing; deployment & Major deliverables \\
+3 & Login module; schedule module; notification module & Manageable sub-deliverables \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+A weak WBS contains only broad actions such as ``code, test, deploy.'' A strong WBS covers the entire agreed scope, uses clear deliverable names, and reaches a level at which work can be estimated and assigned.
+
+\section{5. Turn the WBS into a Feasible Schedule}
+
+Each work package is converted into activities with durations, dependencies, responsibilities, milestones, and resource needs. If the first plan takes 15 weeks but the deadline is 12 weeks, the PMO must redesign the plan rather than hide the delay.
+
+Responsible schedule-compression options include:
+
+\begin{itemize}
+  \item performing compatible activities in parallel;
+  \item prioritizing the features needed for the pilot;
+  \item adding temporary support to critical work;
+  \item automating repeatable tests; and
+  \item postponing low-value optional features through formal scope control.
+\end{itemize}
+
+Removing essential testing is not a valid shortcut. It transfers schedule pressure into quality, security, and operational risk.
+
+\section{6. Read the Dashboard as Evidence}
+
+At week 6, the project dashboard reports:
+
+\begin{center}
+\begin{tabularx}{0.9\textwidth}{X >{\centering\arraybackslash}p{2.4cm} >{\centering\arraybackslash}p{2.4cm}}
+\toprule
+Indicator & Planned & Actual \\
+\midrule
+Progress & 50\% & 38\% \\
+Cost & USD 20,000 & USD 24,000 \\
+Completed modules & 4 & 2 \\
+Critical bugs & 0 expected & 12 open \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The evidence supports three conclusions:
+
+\begin{itemize}
+  \item \textbf{Schedule pressure:} actual progress is below planned progress.
+  \item \textbf{Cost pressure:} actual cost is above planned cost.
+  \item \textbf{Quality risk:} critical defects and incomplete modules threaten the pilot.
+\end{itemize}
+
+A professional PMO does not report ``red'' and stop. It investigates causes, forecasts the impact, proposes alternatives, and identifies the decision required from the sponsor.
+
+\section{7. Respond to the Week 8 Crisis}
+
+At week 8, database integration fails and the technical team becomes overloaded. A defensible recovery response may include:
+
+\begin{enumerate}
+  \item freeze non-critical scope;
+  \item protect login, schedule, and notification functions;
+  \item assign focused support to integration and critical defects;
+  \item revise the forecast and communicate the consequences honestly; and
+  \item ask the sponsor to approve the necessary scope, resource, or deadline decision.
+\end{enumerate}
+
+Your final PMO briefing must answer four questions: \textbf{What happened? What is the impact? What corrective action is proposed? What decision is needed?}
+
+\section{8. Using AI Responsibly}
+
+AI can support learning and project work, but it does not replace professional judgment. In this module, AI may help generate alternative WBS structures, explain concepts, suggest risks, improve wording, or provide formative feedback.
+
+Your team remains responsible for:
+
+\begin{itemize}
+  \item checking every AI-generated claim against the scenario and course sources;
+  \item protecting personal, institutional, and confidential information;
+  \item identifying assumptions and rejecting invented data;
+  \item documenting meaningful AI use when requested; and
+  \item making and defending the final project decision.
+\end{itemize}
+
+\begin{warningbox}
+\textbf{Rule:} Never upload confidential university or student data to a public AI tool. Use only the fictional data supplied in this learning activity.
+\end{warningbox}
+
+\section{9. Preparation Task}
+
+Before starting the first quest, write brief answers to these questions:
+
+\begin{enumerate}
+  \item Who are the three most influential stakeholders in this project, and why?
+  \item What is one measurable criterion for a successful pilot?
+  \item Why is ``code, test, deploy'' an insufficient WBS?
+  \item What does the week 6 dashboard reveal about schedule, cost, and quality?
+  \item Which project feature would you protect first during the week 8 crisis? Justify your choice.
+\end{enumerate}
+
+Bring your answers to your PMO team. They will be used during the opening discussion and project-charter activity.
+
+\vfill
+\begin{center}
+\small\color{pmoTeal}
+Course resource: \href{https://maoude.github.io/teaching-ai-pmo/}{maoude.github.io/teaching-ai-pmo/}
+\end{center}
+
+\end{document}
