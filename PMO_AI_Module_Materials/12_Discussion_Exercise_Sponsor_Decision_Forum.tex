@@ -1,0 +1,257 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1.6cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+
+\definecolor{pmoTeal}{HTML}{2F6F73}
+\definecolor{pmoDark}{HTML}{182126}
+\definecolor{pmoPink}{HTML}{D81E5B}
+\definecolor{pmoAmber}{HTML}{D99A2B}
+\definecolor{pmoLight}{HTML}{FDEDF4}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=pmoTeal,
+  pdftitle={Sponsor Decision Forum Discussion Exercise},
+  pdfsubject={Discussion exercise for From Plan to Control},
+  pdfauthor={Mohamad Aoude}
+}
+
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\fancyhf{}
+\lhead{From Plan to Control}
+\rhead{Discussion Exercise}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\Large\bfseries\color{pmoPink}}{}{0pt}{}
+\titleformat{\subsection}{\large\bfseries\color{pmoDark}}{}{0pt}{}
+\setlist[itemize]{leftmargin=1.4em,itemsep=2pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=3pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\blankline}{\rule{\linewidth}{0.35pt}}
+
+\newtcolorbox{forumbox}{
+  colback=pmoLight,
+  colframe=pmoPink,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=3mm,right=3mm,top=2mm,bottom=2mm
+}
+
+\newtcolorbox{rulebox}{
+  colback=yellow!8,
+  colframe=pmoAmber,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=3mm,right=3mm,top=2mm,bottom=2mm
+}
+
+\begin{document}
+
+\begin{center}
+  {\small\bfseries\color{pmoPink} DISCUSSION ACTIVITY}\par
+  \vspace{2mm}
+  {\Huge\bfseries\color{pmoDark} Sponsor Decision Forum}\par
+  \vspace{2mm}
+  {\Large What Should the PMO Protect?}\par
+  \vspace{3mm}
+  {\small Duration: 20 minutes \quad | \quad Format: structured class debate \quad | \quad Evidence: position and final judgment}
+\end{center}
+
+\begin{forumbox}
+\textbf{Discussion challenge.} The Smart Campus project is late, over budget, and facing a database-integration failure. There is no perfect response. Your task is to defend one recovery priority, question competing proposals, and revise or confirm your judgment after hearing evidence from others.
+\end{forumbox}
+
+\section{1. Learning Outcomes}
+
+By the end of the forum, students will be able to:
+
+\begin{itemize}
+  \item state a clear project-recovery position;
+  \item support claims using schedule, cost, scope, quality, and risk evidence;
+  \item ask constructive questions and respond to counterarguments;
+  \item compare the consequences of competing stakeholder priorities; and
+  \item reach an individual final judgment after considering peer perspectives.
+\end{itemize}
+
+\section{2. Evidence Available to Everyone}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{3.5cm} Y}
+\toprule
+Project evidence & Current situation \\
+\midrule
+Deadline & Pilot required at the end of week 12; current time is week 8. \\
+Budget & Approved budget is USD 40,000; spending is already above the week 6 plan. \\
+Progress & Actual progress was 38\% when planned progress was 50\%. \\
+Quality & Twelve critical bugs were open; integration failure now blocks live data. \\
+Essential pilot scope & Secure login, course schedules, and essential notifications. \\
+Optional pilot scope & Room reservations, complaint workflow, analytics, and visual customization. \\
+Team condition & Technical staff report overload and increasing rework. \\
+Main uncertainty & The complete effort needed to stabilize integration is not yet known. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{3. Choose an Initial Position (2 minutes)}
+
+Select one position before the discussion begins. You may change your position later, but you must explain why.
+
+\begin{itemize}
+  \item[$\square$] \textbf{Position A -- Protect the deadline:} freeze optional scope and deliver a smaller reliable pilot in week 12.
+  \item[$\square$] \textbf{Position B -- Protect the complete scope:} request a later deadline so all promised functions remain in the first pilot.
+  \item[$\square$] \textbf{Position C -- Protect scope and deadline through investment:} request additional budget for focused integration expertise.
+  \item[$\square$] \textbf{Position D -- Protect the approved budget:} retain current resources and accept a reduced scope or later completion based on a new forecast.
+\end{itemize}
+
+\textbf{My initial position:} \blankline
+
+\textbf{My strongest supporting evidence:}
+
+\vspace{8mm}\blankline
+
+\textbf{The stakeholder most helped by this position:} \blankline
+
+\textbf{The stakeholder or objective placed most at risk:} \blankline
+
+\section{4. Discussion Rules}
+
+\begin{rulebox}
+\begin{enumerate}
+  \item Critique ideas and evidence, never the person presenting them.
+  \item Use the structure \textbf{claim $\rightarrow$ evidence $\rightarrow$ reasoning}.
+  \item Do not repeat a previous point unless you add new evidence or a different implication.
+  \item Before disagreeing, summarize the previous speaker's point fairly.
+  \item The goal is not to win. The goal is to improve the quality of the project decision.
+\end{enumerate}
+\end{rulebox}
+
+\section{5. Forum Sequence (15 minutes)}
+
+\subsection*{Round 1 -- Opening positions (4 minutes)}
+
+One representative for each position gives a maximum 45-second statement:
+
+\begin{forumbox}
+``The PMO should \underline{\hspace{4cm}} because the evidence shows \underline{\hspace{4cm}}. This protects \underline{\hspace{3cm}}, although it risks \underline{\hspace{3cm}}.''
+\end{forumbox}
+
+Record one strong point from a position different from yours:
+
+\vspace{8mm}\blankline
+
+\subsection*{Round 2 -- Evidence questions (4 minutes)}
+
+Ask questions that expose assumptions or missing evidence. Useful prompts include:
+
+\begin{itemize}
+  \item What evidence supports your forecast?
+  \item Which stakeholder accepts the consequence of this choice?
+  \item What happens if integration takes longer than expected?
+  \item How does your proposal protect quality and security?
+  \item What exact sponsor approval does your proposal require?
+\end{itemize}
+
+\textbf{Question I asked or wanted to ask:}
+
+\vspace{7mm}\blankline
+
+\textbf{Most useful answer heard:}
+
+\vspace{7mm}\blankline
+
+\subsection*{Round 3 -- Counterargument and response (4 minutes)}
+
+Complete both statements:
+
+\textbf{A reasonable objection to my position is:}
+
+\vspace{7mm}\blankline
+
+\textbf{My evidence-based response is:}
+
+\vspace{7mm}\blankline
+
+\subsection*{Round 4 -- Final vote (3 minutes)}
+
+Vote again after hearing the discussion. The final vote is individual; consensus is not required.
+
+\begin{itemize}
+  \item[$\square$] Position A
+  \item[$\square$] Position B
+  \item[$\square$] Position C
+  \item[$\square$] Position D
+\end{itemize}
+
+\section{6. Final Judgment}
+
+\textbf{My final position:} \blankline
+
+\textbf{Did my position change? Why or why not?}
+
+\vspace{9mm}\blankline
+
+\textbf{The most persuasive evidence or argument was:}
+
+\vspace{9mm}\blankline
+
+\textbf{The sponsor decision I would request is:}
+
+\vspace{9mm}\blankline
+
+\section{7. Discussion Assessment}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{4cm} Y >{\centering\arraybackslash}p{2cm}}
+\toprule
+Criterion & Observable evidence & Points \\
+\midrule
+Clear position & States a specific, relevant recovery priority. & 3 \\
+Use of evidence & Uses project data rather than unsupported opinion. & 3 \\
+Reasoning & Explains consequences and recognizes trade-offs. & 3 \\
+Dialogic participation & Listens, questions, and responds constructively. & 3 \\
+Final judgment & Revises or confirms the position using ideas from the discussion. & 3 \\
+\midrule
+Total & & 15 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{8. Instructor Facilitation Notes}
+
+\begin{itemize}
+  \item Display or distribute the shared evidence before students choose positions.
+  \item Place students by initial position, then alternate speakers across positions.
+  \item Ask quiet students to contribute a question before allowing a second contribution from frequent speakers.
+  \item Do not announce one universally correct answer. Evaluate the evidence, assumptions, trade-offs, and requested sponsor decision.
+  \item Close by distinguishing \textbf{discussion} from \textbf{collaboration}: this forum improves individual judgment through exchanged perspectives; the collaboration exercise requires a team to produce one shared recovery briefing.
+\end{itemize}
+
+\section{9. Responsible AI Boundary}
+
+Students must form an initial position before using AI. If permitted, AI may generate a counterargument that students critically evaluate. It may not vote, invent project evidence, or replace peer discussion. No personal or confidential information may be uploaded.
+
+\vfill
+\begin{center}
+\small\color{pmoTeal}
+Course portal: \href{https://maoude.github.io/teaching-ai-pmo/}{maoude.github.io/teaching-ai-pmo/}
+\end{center}
+
+\end{document}

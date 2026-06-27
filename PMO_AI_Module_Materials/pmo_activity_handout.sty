@@ -1,0 +1,69 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pmo_activity_handout}[2026/06/27 PMO activity handout style]
+
+\RequirePackage[margin=1.6cm]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage{xcolor}
+\RequirePackage{tabularx}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{amssymb}
+\RequirePackage{enumitem}
+\RequirePackage{hyperref}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage{tcolorbox}
+
+\definecolor{pmoTeal}{HTML}{2F6F73}
+\definecolor{pmoDark}{HTML}{182126}
+\definecolor{pmoAmber}{HTML}{D99A2B}
+\definecolor{pmoBlue}{HTML}{0072CE}
+\definecolor{pmoGreen}{HTML}{659F2B}
+\definecolor{pmoLight}{HTML}{EEF6F5}
+
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\fancyhf{}
+\lhead{From Plan to Control}
+\rhead{PMO Learning Activity}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\Large\bfseries\color{pmoTeal}}{}{0pt}{}
+\titleformat{\subsection}{\large\bfseries\color{pmoDark}}{}{0pt}{}
+\setlist[itemize]{leftmargin=1.4em,itemsep=2pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=3pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\blankline}{\rule{\linewidth}{0.35pt}}
+\newcommand{\activitytitle}[4]{
+  \begin{center}
+    {\small\bfseries\color{pmoTeal} #1}\par
+    \vspace{2mm}
+    {\Huge\bfseries\color{pmoDark} #2}\par
+    \vspace{2mm}
+    {\Large #3}\par
+    \vspace{3mm}
+    {\small #4}
+  \end{center}
+}
+
+\newtcolorbox{activitybox}{
+  colback=pmoLight,
+  colframe=pmoTeal,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=3mm,right=3mm,top=2mm,bottom=2mm
+}
+
+\newtcolorbox{checkbox}{
+  colback=yellow!8,
+  colframe=pmoAmber,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=3mm,right=3mm,top=2mm,bottom=2mm
+}
