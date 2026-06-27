@@ -1,0 +1,255 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1.6cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+
+\definecolor{pmoTeal}{HTML}{2F6F73}
+\definecolor{pmoDark}{HTML}{182126}
+\definecolor{pmoPurple}{HTML}{7B3F7E}
+\definecolor{pmoAmber}{HTML}{D99A2B}
+\definecolor{pmoLight}{HTML}{F3EDF5}
+\definecolor{pmoGray}{HTML}{F4F6F7}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=pmoTeal,
+  pdftitle={PMO Recovery Team Collaboration Exercise},
+  pdfsubject={Collaboration exercise for From Plan to Control},
+  pdfauthor={Mohamad Aoude}
+}
+
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\fancyhf{}
+\lhead{From Plan to Control}
+\rhead{Collaboration Exercise}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\Large\bfseries\color{pmoPurple}}{}{0pt}{}
+\titleformat{\subsection}{\large\bfseries\color{pmoDark}}{}{0pt}{}
+\setlist[itemize]{leftmargin=1.4em,itemsep=2pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=3pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\blankline}{\rule{\linewidth}{0.35pt}}
+
+\newtcolorbox{missionbox}{
+  colback=pmoLight,
+  colframe=pmoPurple,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=3mm,right=3mm,top=2mm,bottom=2mm
+}
+
+\newtcolorbox{warningbox}{
+  colback=yellow!8,
+  colframe=pmoAmber,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=3mm,right=3mm,top=2mm,bottom=2mm
+}
+
+\begin{document}
+
+\begin{center}
+  {\small\bfseries\color{pmoPurple} COLLABORATION ACTIVITY}\par
+  \vspace{2mm}
+  {\Huge\bfseries\color{pmoDark} PMO Recovery Team Exercise}\par
+  \vspace{2mm}
+  {\Large Week 8 Integration Crisis}\par
+  \vspace{3mm}
+  {\small Duration: 25 minutes \quad | \quad Team size: 4--5 students \quad | \quad Output: recovery briefing}
+\end{center}
+
+\begin{missionbox}
+\textbf{Team mission.} Your PMO must agree on a defensible response to a serious database-integration failure. The sponsor will not accept separate individual answers. Your team must combine technical, schedule, cost, quality, and stakeholder perspectives into one recommendation that every member can defend.
+\end{missionbox}
+
+\section{1. Learning Outcomes}
+
+By completing this exercise, your team will be able to:
+
+\begin{itemize}
+  \item collaborate through defined PMO roles and shared decision rules;
+  \item analyze the impact of a project crisis using evidence;
+  \item compare recovery alternatives across scope, time, cost, quality, and risk;
+  \item negotiate one justified corrective-action strategy; and
+  \item communicate a concise sponsor decision request.
+\end{itemize}
+
+\section{2. Assign Team Roles (2 minutes)}
+
+Assign one role to each member. In a four-person team, combine the Recorder and Presenter roles.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{3.5cm} Y p{3.2cm}}
+\toprule
+Role & Responsibility & Student name \\
+\midrule
+PMO Facilitator & Keeps the team focused, invites every member to contribute, and manages time. & \\
+Scope and Stakeholder Lead & Protects essential user value and identifies sponsor and stakeholder consequences. & \\
+Schedule and Cost Analyst & Evaluates deadline, workload, resource, and budget implications. & \\
+Risk and Quality Analyst & Evaluates technical, security, testing, integration, and operational risks. & \\
+Recorder / Presenter & Documents the decision and presents the final sponsor briefing. & \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Collaboration rule:} The Presenter may not speak until every team member has contributed at least one evidence-based point.
+
+\section{3. Crisis Brief (3 minutes)}
+
+It is week 8 of the Smart Campus Mobile App project. The project deadline remains week 12 and the approved budget remains USD 40,000.
+
+\begin{itemize}
+  \item Database integration has failed during system testing.
+  \item Login and course-schedule modules cannot retrieve reliable live data.
+  \item Actual progress is behind plan, and actual cost is already above plan.
+  \item Twelve critical bugs remain open.
+  \item The technical team reports overload and increasing rework.
+  \item The sponsor still expects a reliable pilot at the end of week 12.
+\end{itemize}
+
+The pilot must provide secure login, course schedules, and essential notifications. Room reservation, complaint management, advanced analytics, and visual customization are valuable but not essential for the first pilot.
+
+\begin{warningbox}
+The team may not hide the problem, remove all testing, invent additional budget, or assume that AI can repair the integration automatically.
+\end{warningbox}
+
+\section{4. Individual Position (3 minutes)}
+
+Before negotiating, each member selects an initial option and records one reason. This prevents the first speaker from determining the entire group decision.
+
+\begin{tabularx}{\textwidth}{>{\bfseries}p{3.7cm} Y}
+Initial option & \blankline \\[5mm]
+Strongest reason & \blankline \\[5mm]
+Most serious risk & \blankline \\
+\end{tabularx}
+
+\section{5. Recovery Alternatives}
+
+\begin{enumerate}[label=\textbf{Option \Alph*:}]
+  \item \textbf{Continue the full scope using overtime.} Keep every promised feature and ask the existing team to work longer hours.
+  \item \textbf{Protect the pilot and freeze non-critical scope.} Focus the team on integration, login, schedules, notifications, critical defects, and acceptance testing. Move optional features to a later release.
+  \item \textbf{Delay the complete pilot.} Keep the full scope but request a later launch date before committing further resources.
+  \item \textbf{Acquire focused integration support.} Request sponsor approval for a temporary database specialist while also prioritizing the pilot scope.
+\end{enumerate}
+
+Your team may combine compatible elements, but it must state exactly what changes and what sponsor approval is required.
+
+\section{6. Team Decision Matrix (8 minutes)}
+
+Discuss each alternative and score it from 1 to 5, where \textbf{1 = very weak} and \textbf{5 = very strong}. Record evidence, not only numbers.
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{>{\bfseries}p{1.2cm} >{\centering\arraybackslash}p{1.5cm} >{\centering\arraybackslash}p{1.5cm} >{\centering\arraybackslash}p{1.5cm} >{\centering\arraybackslash}p{1.5cm} >{\centering\arraybackslash}p{1.5cm} >{\centering\arraybackslash}p{1.3cm} Y}
+\toprule
+Option & User value & Week 12 feasibility & Cost control & Quality & Risk control & Total /25 & Key evidence \\
+\midrule
+A & & & & & & & \\[6mm]
+B & & & & & & & \\[6mm]
+C & & & & & & & \\[6mm]
+D & & & & & & & \\[6mm]
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Selected strategy:}
+
+\blankline
+
+\textbf{Why this strategy is stronger than the next-best alternative:}
+
+\vspace{8mm}
+\blankline
+
+\section{7. Build the Sponsor Briefing (6 minutes)}
+
+Prepare a briefing of no more than two minutes. Every statement must be supported by the crisis evidence or by an explicit assumption.
+
+\subsection*{1. What happened?}
+State the problem and its verified cause or current uncertainty.
+
+\vspace{7mm}\blankline
+
+\subsection*{2. What is the impact?}
+Explain consequences for scope, schedule, cost, quality, risk, and stakeholders.
+
+\vspace{7mm}\blankline
+
+\subsection*{3. What corrective action do you recommend?}
+State what the team will stop, start, continue, and monitor.
+
+\vspace{7mm}\blankline
+
+\subsection*{4. What sponsor decision is required?}
+Ask for a specific approval concerning scope, resources, budget, or deadline.
+
+\vspace{7mm}\blankline
+
+\section{8. Peer Challenge and Final Agreement (3 minutes)}
+
+Before submission, one member must challenge the recommendation using this sentence:
+
+\begin{missionbox}
+``Our plan could fail if \underline{\hspace{5cm}}. What evidence or contingency addresses this risk?''
+\end{missionbox}
+
+Record the team's response:
+
+\vspace{10mm}\blankline
+
+\textbf{Final agreement check:}
+
+\begin{itemize}
+  \item[$\square$] Every member contributed evidence.
+  \item[$\square$] The selected action protects essential pilot value.
+  \item[$\square$] The plan includes testing and transparent sponsor communication.
+  \item[$\square$] Risks, assumptions, and required approval are explicit.
+  \item[$\square$] Every member can defend the final recommendation.
+\end{itemize}
+
+\section{9. Collaboration Assessment}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{4.1cm} Y >{\centering\arraybackslash}p{2.2cm}}
+\toprule
+Criterion & Evidence & Points \\
+\midrule
+Inclusive contribution & Roles are used and every member contributes an evidence-based perspective. & 5 \\
+Evidence-based analysis & The matrix addresses scope, schedule, cost, quality, and risk. & 5 \\
+Decision quality & The recommendation is feasible and compares alternatives explicitly. & 5 \\
+Shared output & The briefing is coherent and can be defended by all members. & 5 \\
+\midrule
+Total & & 20 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{10. Responsible AI Boundary}
+
+If the instructor permits AI, use it only after the team has recorded its initial positions. AI may challenge assumptions or improve briefing clarity. It may not make the final decision, invent project data, or replace team discussion. Do not upload confidential or personal information.
+
+\vfill
+\begin{center}
+\small\color{pmoTeal}
+Course portal: \href{https://maoude.github.io/teaching-ai-pmo/}{maoude.github.io/teaching-ai-pmo/}
+\end{center}
+
+\end{document}

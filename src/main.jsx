@@ -80,6 +80,18 @@ const resources = [
     description: "Google Sheets / Excel template with week 6 project data, earned value formulas, and KPI calculations for the hands-on activity.",
     file: "dashboard_template.csv",
     icon: FileSpreadsheet
+  },
+  {
+    title: "UCL Learning Design",
+    description: "Full pedagogical strategy document in UCL Learning Designer format — learning mix chart, activity sequence, gamification architecture, and design rationale.",
+    file: "ucl_learning_design.html",
+    icon: LayoutDashboard
+  },
+  {
+    title: "PMO Collaboration Exercise",
+    description: "A 25-minute team exercise with assigned PMO roles, a week 8 crisis, decision matrix, peer challenge, and sponsor recovery briefing.",
+    file: "PMO_Collaboration_Exercise.pdf",
+    icon: Users
   }
 ];
 
