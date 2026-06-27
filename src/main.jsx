@@ -98,6 +98,24 @@ const resources = [
     description: "A 20-minute structured discussion in which students defend recovery priorities, challenge assumptions, and revise their judgment using project evidence.",
     file: "PMO_Discussion_Exercise.pdf",
     icon: Users
+  },
+  {
+    title: "Project Evidence Investigation",
+    description: "A 25-minute inquiry lab for separating facts from assumptions, mapping stakeholder evidence, identifying gaps, and forming decision-changing questions.",
+    file: "PMO_Investigation_Exercise.pdf",
+    icon: BookOpen
+  },
+  {
+    title: "Dashboard Diagnostic Practice",
+    description: "A 30-minute guided practice lab covering PV, EV, SV, CV, SPI, CPI, integrated diagnosis, corrective action, and immediate self-feedback.",
+    file: "PMO_Practice_Exercise.pdf",
+    icon: BarChart3
+  },
+  {
+    title: "Recovery Briefing Production",
+    description: "A 30-minute production studio for creating a sponsor-ready written and oral PMO recovery briefing with milestones, controls, and assessment rubric.",
+    file: "PMO_Production_Exercise.pdf",
+    icon: Presentation
   }
 ];
 
