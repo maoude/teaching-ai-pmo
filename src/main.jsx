@@ -92,6 +92,12 @@ const resources = [
     description: "A 25-minute team exercise with assigned PMO roles, a week 8 crisis, decision matrix, peer challenge, and sponsor recovery briefing.",
     file: "PMO_Collaboration_Exercise.pdf",
     icon: Users
+  },
+  {
+    title: "Sponsor Decision Forum",
+    description: "A 20-minute structured discussion in which students defend recovery priorities, challenge assumptions, and revise their judgment using project evidence.",
+    file: "PMO_Discussion_Exercise.pdf",
+    icon: Users
   }
 ];
 
